@@ -1,4 +1,4 @@
-- 참고
+참고
 1. github 사용법   
 https://geundung.dev/46
 2. markdown 작성법   

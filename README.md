@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 TMDB-netflix
 ============
 TMDB API 기반, 영화-TV 추천 웹사이트

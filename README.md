@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 TMDB-netflix
 ============
 TMDB API 기반, 영화-TV 추천 웹사이트
@@ -72,3 +73,13 @@ UI 디자인 시안 제작
     https://geundung.dev/46
   - markdown 작성법   
     https://gist.github.com/ihoneymon/652be052a0727ad59601
+=======
+참고
+1. github 사용법   
+https://geundung.dev/46
+2. markdown 작성법   
+https://gist.github.com/ihoneymon/652be052a0727ad59601
+
+# TMDB-netflix
+TMDB API 기반으로 영화-TV 추천 웹
+>>>>>>> 719897d42918efaad029c183818f66dcd4d75b44

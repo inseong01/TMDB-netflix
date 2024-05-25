@@ -1,0 +1,1915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- css -->
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  
+  <!-- js -->
+  
+  <script type="module" defer>import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';</script>
+  <script src="./js/script.js" defer></script>
+
+  <title>NETFLIX</title>
+</head>
+<body>
+  <!-- 초기 화면 -->
+  <section class="account_section">
+    <div class="wrap">
+      <div class="top">
+        <h1 class="title">netflix를 시청할 프로필을 선택하세요.</h1>
+      </div>
+      <div class="center">
+        <div class="profile_box box1">
+          <!-- 사용자 -->
+          <a href="#none" class="profile">
+            <div class="profile_image">
+              <img src="./img/profile-icons/1bdc9a33850498.56ba69ac2ba5b.png" alt="">
+            </div>
+            <p class="name">가나다</p>
+          </a>
+        </div>
+        <div class="profile_box box2">
+          <!-- 키즈 -->
+          <a href="#none" class="profile">
+            <div class="profile_image">
+              <img src="./img/profile-icons/kids.png" alt="">
+            </div>
+            <p class="name">키즈</p>
+          </a>
+        </div>
+        <div class="profile_box box3">
+          <!-- 프로필 추가 -->
+          <a href="#none" class="profile">
+            <div class="profile_image">
+              <img src="./img/profile.png" alt="">
+            </div>
+            <p class="name">프로필 추가</p>
+          </a>
+        </div>
+      </div>
+      <div class="bottom">
+        <a href="#none" class="profile_manage">
+          <span>프로필 관리</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 메인 화면 -->
+  <section class="main_section">
+    <div class="banner_wrap">
+      <div class="banner sec">
+        <!-- header -->
+        <header class="header">
+          <ul class="menu_list_left">
+            <li class="logo_box">
+              <a href="#none"><img src="./img/icons8-logo.png" alt="" class="logo"></a>
+            </li>
+            <li class="list"><a href="#none">home</a></li>
+            <li class="list"><a href="#none">tv shows</a></li>
+            <li class="list"><a href="#none">movies</a></li>
+            <li class="list"><a href="#none">new & popular</a></li>
+            <li class="list"><a href="#none">my list</a></li>
+            <li class="list"><a href="#none">browser by language</a></li>
+          </ul>
+          <ul class="menu_list_right">
+            <li class="list search">
+              <a href="#none">
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 30 30" width="30px" height="30px"><path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z"/></svg>
+              </a>
+            </li>
+            <li class="list kids">
+              <a href="#none">kids</a>
+            </li>
+            <li class="list alert">
+              <a href="#none"><img src="./img/icons8-alert-96.png" alt=""></a>
+            </li>
+            <li class="list profile">
+              <a href="#none">
+                <img src="./img/profile-icons/1bdc9a33850498.56ba69ac2ba5b.png" alt="">
+                <img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt="" class="arrow">
+              </a>
+              
+            </li>
+          </ul>
+        </header>
+      
+        <!-- banner -->
+        <div class="center">
+          <div class="video_content">
+            <div class="video_icon">
+              <!-- <img src="" alt="" class="icon"> -->
+            </div>
+
+            <h1 class="title">new episode coming</h1>
+
+            <p class="story">...</p>
+            <div class="btn_wrap">
+              <button class="play btn">
+                <div class="wrap">
+                  <img src="./img/play-button-arrowhead.png" alt="">
+                  <span>play</span>
+                </div>
+              </button>
+              <button class="more btn">
+                <div class="wrap">
+                  <img src="./img/info.png" alt="">
+                  <span>more info</span>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- 1) video list -->
+          <div class="categories1">
+            <h1 class="headtext">Recommend <span></span> TV Shows</h1>
+            <div class="swiper">
+              <div class="swiper-wrapper video_wrapper">
+                <div class="swiper-slide slide slide1">
+                  <div class="slide_inbox">
+                    <div class="inbox top">
+                      <img src="" alt="">
+                    </div>
+                    <div class="inbox bottom">
+                      <ul class="icon_wrap">
+                        <li class="icon_left">
+                          <div class="icon">
+                            <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                          </div>
+                          <div class="icon">
+                            <a href="#none"><img src="./img/plus.png" alt=""></a>
+                          </div>
+                          <div class="icon">
+                            <a href="#none"><img src="./img/like.png" alt=""></a>
+                          </div>  
+                        </li>
+                        <li class="icon_right">
+                          <div class="icon">
+                            <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                          </div>
+                        </li>
+                      </ul>
+                      <ul class="match_list">
+                        <div class="percent"><span>96</span>/10 vote</div>
+                      </ul>
+                      <ul class="genre_list">
+                        <li class="list"></li>
+                        <li class="list"></li>
+                        <li class="list"></li>
+                      </ul>
+                      <ul class="like_list">
+                        <li class="icon">
+                          <img src="./img/like.png" alt="">
+                        </li>
+                        <li class="list">most like</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide slide slide2">
+                  <div class="slide_inbox">
+                    <div class="inbox top">
+                      <img src="" alt="">
+                    </div>
+                    <div class="inbox bottom">
+                      <ul class="icon_wrap">
+                        <li class="icon_left">
+                          <div class="icon">
+                            <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                          </div>
+                          <div class="icon">
+                            <a href="#none"><img src="./img/plus.png" alt=""></a>
+                          </div>
+                          <div class="icon">
+                            <a href="#none"><img src="./img/like.png" alt=""></a>
+                          </div>  
+                        </li>
+                        <li class="icon_right">
+                          <div class="icon">
+                            <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                          </div>
+                        </li>
+                      </ul>
+                      <ul class="match_list">
+                        <div class="percent"><span>96</span>/10 vote</div>
+                      </ul>
+                      <ul class="genre_list">
+                        <li class="list"></li>
+                        <li class="list"></li>
+                        <li class="list"></li>
+                      </ul>
+                      <ul class="like_list">
+                        <li class="icon">
+                          <img src="./img/like.png" alt="">
+                        </li>
+                        <li class="list">most like</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide slide slide3">
+                  <div class="slide_inbox">
+                    <div class="inbox top">
+                      <img src="" alt="">
+                    </div>
+                    <div class="inbox bottom">
+                      <ul class="icon_wrap">
+                        <li class="icon_left">
+                          <div class="icon">
+                            <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                          </div>
+                          <div class="icon">
+                            <a href="#none"><img src="./img/plus.png" alt=""></a>
+                          </div>
+                          <div class="icon">
+                            <a href="#none"><img src="./img/like.png" alt=""></a>
+                          </div>  
+                        </li>
+                        <li class="icon_right">
+                          <div class="icon">
+                            <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                          </div>
+                        </li>
+                      </ul>
+                      <ul class="match_list">
+                        <div class="percent"><span>96</span>/10 vote</div>
+                      </ul>
+                      <ul class="genre_list">
+                        <li class="list"></li>
+                        <li class="list"></li>
+                        <li class="list"></li>
+                      </ul>
+                      <ul class="like_list">
+                        <li class="icon">
+                          <img src="./img/like.png" alt="">
+                        </li>
+                        <li class="list">most like</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide slide slide4">
+                  <div class="slide_inbox">
+                    <div class="inbox top">
+                      <img src="" alt="">
+                    </div>
+                    <div class="inbox bottom">
+                      <ul class="icon_wrap">
+                        <li class="icon_left">
+                          <div class="icon">
+                            <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                          </div>
+                          <div class="icon">
+                            <a href="#none"><img src="./img/plus.png" alt=""></a>
+                          </div>
+                          <div class="icon">
+                            <a href="#none"><img src="./img/like.png" alt=""></a>
+                          </div>  
+                        </li>
+                        <li class="icon_right">
+                          <div class="icon">
+                            <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                          </div>
+                        </li>
+                      </ul>
+                      <ul class="match_list">
+                        <div class="percent"><span>96</span>/10 vote</div>
+                      </ul>
+                      <ul class="genre_list">
+                        <li class="list"></li>
+                        <li class="list"></li>
+                        <li class="list"></li>
+                      </ul>
+                      <ul class="like_list">
+                        <li class="icon">
+                          <img src="./img/like.png" alt="">
+                        </li>
+                        <li class="list">most like</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide slide slide5">
+                  <div class="slide_inbox">
+                    <div class="inbox top">
+                      <img src="" alt="">
+                    </div>
+                    <div class="inbox bottom">
+                      <ul class="icon_wrap">
+                        <li class="icon_left">
+                          <div class="icon">
+                            <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                          </div>
+                          <div class="icon">
+                            <a href="#none"><img src="./img/plus.png" alt=""></a>
+                          </div>
+                          <div class="icon">
+                            <a href="#none"><img src="./img/like.png" alt=""></a>
+                          </div>  
+                        </li>
+                        <li class="icon_right">
+                          <div class="icon">
+                            <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                          </div>
+                        </li>
+                      </ul>
+                      <ul class="match_list">
+                        <div class="percent"><span>96</span>/10 vote</div>
+                      </ul>
+                      <ul class="genre_list">
+                        <li class="list"></li>
+                        <li class="list"></li>
+                        <li class="list"></li>
+                      </ul>
+                      <ul class="like_list">
+                        <li class="icon">
+                          <img src="./img/like.png" alt="">
+                        </li>
+                        <li class="list">most like</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide slide slide6">
+                  <div class="slide_inbox">
+                    <div class="inbox top">
+                      <img src="" alt="">
+                    </div>
+                    <div class="inbox bottom">
+                      <ul class="icon_wrap">
+                        <li class="icon_left">
+                          <div class="icon">
+                            <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                          </div>
+                          <div class="icon">
+                            <a href="#none"><img src="./img/plus.png" alt=""></a>
+                          </div>
+                          <div class="icon">
+                            <a href="#none"><img src="./img/like.png" alt=""></a>
+                          </div>  
+                        </li>
+                        <li class="icon_right">
+                          <div class="icon">
+                            <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                          </div>
+                        </li>
+                      </ul>
+                      <ul class="match_list">
+                        <div class="percent"><span>96</span>/10 vote</div>
+                      </ul>
+                      <ul class="genre_list">
+                        <li class="list"></li>
+                        <li class="list"></li>
+                        <li class="list"></li>
+                      </ul>
+                      <ul class="like_list">
+                        <li class="icon">
+                          <img src="./img/like.png" alt="">
+                        </li>
+                        <li class="list">most like</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide slide slide7">
+                  <div class="slide_inbox">
+                    <div class="inbox top">
+                      <img src="" alt="">
+                    </div>
+                    <div class="inbox bottom">
+                      <ul class="icon_wrap">
+                        <li class="icon_left">
+                          <div class="icon">
+                            <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                          </div>
+                          <div class="icon">
+                            <a href="#none"><img src="./img/plus.png" alt=""></a>
+                          </div>
+                          <div class="icon">
+                            <a href="#none"><img src="./img/like.png" alt=""></a>
+                          </div>  
+                        </li>
+                        <li class="icon_right">
+                          <div class="icon">
+                            <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                          </div>
+                        </li>
+                      </ul>
+                      <ul class="match_list">
+                        <div class="percent"><span>96</span>/10 vote</div>
+                      </ul>
+                      <ul class="genre_list">
+                        <li class="list"></li>
+                        <li class="list"></li>
+                        <li class="list"></li>
+                      </ul>
+                      <ul class="like_list">
+                        <li class="icon">
+                          <img src="./img/like.png" alt="">
+                        </li>
+                        <li class="list">most like</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide slide slide8">
+                  <div class="slide_inbox">
+                    <div class="inbox top">
+                      <img src="" alt="">
+                    </div>
+                    <div class="inbox bottom">
+                      <ul class="icon_wrap">
+                        <li class="icon_left">
+                          <div class="icon">
+                            <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                          </div>
+                          <div class="icon">
+                            <a href="#none"><img src="./img/plus.png" alt=""></a>
+                          </div>
+                          <div class="icon">
+                            <a href="#none"><img src="./img/like.png" alt=""></a>
+                          </div>  
+                        </li>
+                        <li class="icon_right">
+                          <div class="icon">
+                            <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                          </div>
+                        </li>
+                      </ul>
+                      <ul class="match_list">
+                        <div class="percent"><span>96</span>/10 vote</div>
+                      </ul>
+                      <ul class="genre_list">
+                        <li class="list"></li>
+                        <li class="list"></li>
+                        <li class="list"></li>
+                      </ul>
+                      <ul class="like_list">
+                        <li class="icon">
+                          <img src="./img/like.png" alt="">
+                        </li>
+                        <li class="list">most like</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide slide slide9">
+                  <div class="slide_inbox">
+                    <div class="inbox top">
+                      <img src="" alt="">
+                    </div>
+                    <div class="inbox bottom">
+                      <ul class="icon_wrap">
+                        <li class="icon_left">
+                          <div class="icon">
+                            <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                          </div>
+                          <div class="icon">
+                            <a href="#none"><img src="./img/plus.png" alt=""></a>
+                          </div>
+                          <div class="icon">
+                            <a href="#none"><img src="./img/like.png" alt=""></a>
+                          </div>  
+                        </li>
+                        <li class="icon_right">
+                          <div class="icon">
+                            <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                          </div>
+                        </li>
+                      </ul>
+                      <ul class="match_list">
+                        <div class="percent"><span>96</span>/10 vote</div>
+                      </ul>
+                      <ul class="genre_list">
+                        <li class="list"></li>
+                        <li class="list"></li>
+                        <li class="list"></li>
+                      </ul>
+                      <ul class="like_list">
+                        <li class="icon">
+                          <img src="./img/like.png" alt="">
+                        </li>
+                        <li class="list">most like</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide slide slide10">
+                  <div class="slide_inbox">
+                    <div class="inbox top">
+                      <img src="" alt="">
+                    </div>
+                    <div class="inbox bottom">
+                      <ul class="icon_wrap">
+                        <li class="icon_left">
+                          <div class="icon">
+                            <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                          </div>
+                          <div class="icon">
+                            <a href="#none"><img src="./img/plus.png" alt=""></a>
+                          </div>
+                          <div class="icon">
+                            <a href="#none"><img src="./img/like.png" alt=""></a>
+                          </div>  
+                        </li>
+                        <li class="icon_right">
+                          <div class="icon">
+                            <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                          </div>
+                        </li>
+                      </ul>
+                      <ul class="match_list">
+                        <div class="percent"><span>96</span>/10 vote</div>
+                      </ul>
+                      <ul class="genre_list">
+                        <li class="list"></li>
+                        <li class="list"></li>
+                        <li class="list"></li>
+                      </ul>
+                      <ul class="like_list">
+                        <li class="icon">
+                          <img src="./img/like.png" alt="">
+                        </li>
+                        <li class="list">most like</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="swiper-pagination"></div>
+      
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="banner_bg">
+        <img src="" alt="">
+      </div>
+    </div>
+
+    <!-- 2) video list -->
+    <div class="categories2 sec">
+      <h1 class="headtext">most voted movies</h1>
+      <div class="swiper video">
+        <div class="swiper-wrapper video_wrapper">
+          <div class="swiper-slide slide slide1">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide slide slide2">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide slide slide3">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide slide slide4">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide slide slide5">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide slide slide6">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide slide slide7">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide slide slide8">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide slide slide9">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide slide slide10">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-pagination"></div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+
+    <!-- 3) video list -->
+    <div class="categories3 sec">
+      <h1 class="headtext">Anime Series origned by japan</h1>
+      <div class="swiper video">
+        <div class="swiper-wrapper video_wrapper">
+          <div class="swiper-slide slide slide1">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide slide slide2">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide slide slide3">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide slide slide4">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide slide slide5">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide slide slide6">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide slide slide7">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide slide slide8">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide slide slide9">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide slide slide10">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-pagination"></div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+
+    <!-- 4) video list -->
+    <div class="categories4 sec">
+      <h1 class="headtext">top rate Series</h1>
+      <div class="swiper video">
+        <div class="swiper-wrapper video_wrapper">
+          <div class="swiper-slide slide slide1">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide slide slide2">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide slide slide3">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide slide slide4">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide slide slide5">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide slide slide6">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide slide slide7">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide slide slide8">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide slide slide9">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide slide slide10">
+            <div class="slide_inbox">
+              <div class="inbox top">
+                <img src="" alt="">
+              </div>
+              <div class="inbox bottom">
+                <ul class="icon_wrap">
+                  <li class="icon_left">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/play-button-arrowhead.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/plus.png" alt=""></a>
+                    </div>
+                    <div class="icon">
+                      <a href="#none"><img src="./img/like.png" alt=""></a>
+                    </div>  
+                  </li>
+                  <li class="icon_right">
+                    <div class="icon">
+                      <a href="#none"><img src="./img/free-icon-arrow-down-filled-triangle-58979.png" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="match_list">
+                  <div class="percent"><span>96</span>/10 vote</div>
+                </ul>
+                <ul class="genre_list">
+                  <li class="list"></li>
+                  <li class="list"></li>
+                  <li class="list"> entertainment</li>
+                </ul>
+                <ul class="like_list">
+                  <li class="icon">
+                    <img src="./img/like.png" alt="">
+                  </li>
+                  <li class="list">most like</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-pagination"></div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+
+    <!-- 5) video rank -->
+    <div class="categories5 sec">
+      <h1 class="headtext">top 10 popular movies</h1>
+      <div class="swiper video video5">
+        <div class="swiper-wrapper video_wrapper">
+          <div class="swiper-slide slide slide1"></div>
+          <div class="swiper-slide slide slide2"></div>
+          <div class="swiper-slide slide slide3"></div>
+          <div class="swiper-slide slide slide4"></div>
+          <div class="swiper-slide slide slide5"></div>
+          <div class="swiper-slide slide slide6"></div>
+          <div class="swiper-slide slide slide7"></div>
+          <div class="swiper-slide slide slide8"></div>
+          <div class="swiper-slide slide slide9"></div>
+          <div class="swiper-slide slide slide10"></div>
+        </div>
+
+        <!-- <div class="swiper-pagination"></div> -->
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <div class="footer_wrap">
+        <ul class="sns_icons">
+          <li>
+            <a href="#none" class="icon"><img src="./img/facebook-app-symbol.png" alt=""></a>
+          </li>
+          <li>
+            <a href="#none" class="icon"><img src="./img/instagram.png" alt=""></a>
+          </li>
+          <li>
+            <a href="#none" class="icon"><img src="./img/twitter.png" alt=""></a>
+          </li>
+          <li>
+            <a href="#none" class="icon"><img src="./img/youtube.png" alt=""></a>
+          </li>
+        </ul>
+
+        <ul class="policy_list">
+          <li class="list">
+            <a href="#none">audio description</a>
+            <a href="#none">investor relations</a>
+            <a href="#none">legal notices</a>
+          </li>
+          <li class="list">
+            <a href="#none">help center</a>
+            <a href="#none">jobs</a>
+            <a href="#none">cookie preferences</a>
+          </li>
+          <li class="list">
+            <a href="#none">gift cards</a>
+            <a href="#none">terms of use</a>
+            <a href="#none">corporate information</a>
+          </li>
+          <li class="list">
+            <a href="#none">media center</a>
+            <a href="#none">privacy</a>
+            <a href="#none">contact us</a>
+          </li>
+        </ul>
+
+        <button class="service">service code</button>
+
+        <ul class="copy_text">
+          <li class="text">Netflix Services Korea Ltd. E-Commerce Registration Number: Je 2018-Seoul Jong-ro-0426 Ho. Phone:</li>
+          <li class="text">Representative: Reginald Shawn Thompson</li>
+          <li class="text">Email: korea@netflix.com</li>
+          <li class="text">Address: 20F, Tower A, Centropolis Building 26, Ujeongguk-ro, Jongno-gu, Seoul, 03161 Republic of Korea</li>
+          <li class="text">Business registration number: 165-87-00119</li>
+          <li class="text">Hosted by: Amazon Web Services Inc.</li>
+          <li class="text">KFTC website</li>
+        </ul>
+      </div>
+    </footer>
+  </section>
+
+  <!-- <div class="new added">recently added</div>
+  <div class="new season">new seasons</div> -->
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</body>
+</html>

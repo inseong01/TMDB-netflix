@@ -18,10 +18,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'GmarketSans', sans-serif;
 }
 
 body {
-  font-family: 'GmarketSans', sans-serif;
   letter-spacing: 1px;
   overflow-x: hidden;
 }

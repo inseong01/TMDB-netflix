@@ -140,7 +140,6 @@ for (let slide of $slides) {
 // }
 
 const swiper_videos = document.querySelectorAll(`.swiper.video`);
-
 const options = { // 초기설정
   method: 'GET',
   headers: {
@@ -381,4 +380,36 @@ function slideData(slides, n, contents) {
   contents = ''; // 초기화
 }
 
-createSec12345();
+// 유저 선택 화면
+const account_section = document.querySelector('.account_section');
+const profiles = document.querySelectorAll('.profile');
+const main_section = document.querySelector('.main_section');
+let user;
+
+function changeTab(user) {
+  switch (user) {
+    case 'owner' :
+      // 사용자 클릭하면 화면 전환
+      createSec12345();
+      account_section.style.display = 'none';
+      main_section.style.display = 'block';
+      break;
+    default :
+      alert('not ready');
+      break;
+  }
+}
+function mainSecForm() {
+  account_section.addEventListener('submit', function(e) {
+    e.preventDefault();
+    changeTab(user);
+  })
+}
+profiles.forEach(value => {
+  value.addEventListener('click', function() {
+    user = this.getAttribute('data-tab');
+    return user;
+  });
+})
+
+mainSecForm();

@@ -13,7 +13,6 @@
   <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png">
   <link rel="manifest" href="./img/site.webmanifest">
   <!-- js -->
-  
   <script type="module" defer>import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';</script>
   <script src="./js/script.js" defer></script>
 
@@ -21,7 +20,7 @@
 </head>
 <body>
   <!-- 초기 화면 -->
-  <section class="account_section">
+  <form class="account_section">
     <div class="wrap">
       <div class="top">
         <h1 class="title">netflix를 시청할 프로필을 선택하세요.</h1>
@@ -29,42 +28,42 @@
       <div class="center">
         <div class="profile_box box1">
           <!-- 사용자 -->
-          <a href="#none" class="profile">
+          <button href="#none" class="profile" data-tab="owner">
             <div class="profile_image">
               <img src="./img/profile-icons/1bdc9a33850498.56ba69ac2ba5b.png" alt="">
             </div>
             <p class="name">가나다</p>
-          </a>
+          </button>
         </div>
         <div class="profile_box box2">
           <!-- 키즈 -->
-          <a href="#none" class="profile">
+          <button href="#none" class="profile" data-tab="kids">
             <div class="profile_image">
               <img src="./img/profile-icons/kids.png" alt="">
             </div>
             <p class="name">키즈</p>
-          </a>
+          </button>
         </div>
         <div class="profile_box box3">
           <!-- 프로필 추가 -->
-          <a href="#none" class="profile">
+          <button href="#none" class="profile" data-tab="add">
             <div class="profile_image">
               <img src="./img/profile.png" alt="">
             </div>
             <p class="name">프로필 추가</p>
-          </a>
+          </button>
         </div>
       </div>
       <div class="bottom">
-        <a href="#none" class="profile_manage">
+        <button href="#none" class="profile profile_manage" data-tab="manage">
           <span>프로필 관리</span>
-        </a>
+        </button>
       </div>
     </div>
-  </section>
+  </form>
 
   <!-- 메인 화면 -->
-  <section class="main_section">
+  <form class="main_section">
     <div class="banner_wrap">
       <div class="banner sec">
         <!-- header -->
@@ -1908,7 +1907,7 @@
         </ul>
       </div>
     </footer>
-  </section>
+  </form>
 
   <!-- <div class="new added">recently added</div>
   <div class="new season">new seasons</div> -->

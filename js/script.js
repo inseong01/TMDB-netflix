@@ -9,9 +9,9 @@ const swiper = new Swiper('.swiper', {
     type: 'bullets',
   },
   slidesPerGroup: 3,
-  slidesPerView: 6,
+  slidesPerView: 7,
   loop: false,
-  spaceBetween: 8,
+  spaceBetween: 16,
 });
 const swiper5 = new Swiper('.video5', {
   navigation: {
@@ -23,7 +23,7 @@ const swiper5 = new Swiper('.video5', {
     type: 'bullets',
   },
   slidesOffsetBefore: 140,
-  slidesPerView: 5,
+  slidesPerView: 6,
   slidesPerGroup: 3,
   loop: false,
   spaceBetween: 140,
@@ -150,6 +150,14 @@ const options = { // 초기설정
 const details = {
   genres: [
     {
+      id: 12,
+      name: "Adventure"
+    },
+    {
+      id: 14,
+      name: "Fantasy"
+    },
+    {
       id: 16,
       name: "Animation"
     },
@@ -158,8 +166,20 @@ const details = {
       name: "Drama"
     },
     {
+      id: 27,
+      name: "Horror"
+    },
+    {
+      id: 28,
+      name: "Action"
+    },
+    {
       id: 35,
       name: "Comedy"
+    },
+    {
+      id: 36,
+      name: "History"
     },
     {
       id: 37,
@@ -172,6 +192,10 @@ const details = {
     {
       id: 99,
       name: "Documentary"
+    },
+    {
+      id: 878,
+      name: "Science Fiction"
     },
     {
       id: 9648,
@@ -218,11 +242,12 @@ const details = {
 }
 let contents;
 let selectedGenre;
+let compareDate;
+
 
 // section1/2/3/4/5
 function createSec12345() {
   createRandomGenre();
-  console.log(0, selectedGenre);
   swiper_video_wrap();
 }
 
@@ -240,10 +265,9 @@ function firstSec() { // section1, genre 랜덤 선택
     const swiper_slides = document.querySelectorAll(`.categories1 .slide`);
     contents = response['results'];
     contents.forEach((value, idx) => {
-      if (!value.poster_path) contents.splice(idx, 1); // 이게 맞나?
+      if (!value.poster_path) contents.splice(idx, 1);
     });
     createBanner(contents);
-    console.log(1, selectedGenre);
     slideData(swiper_slides.length, 1, contents);
   })
   .catch(err => console.error(err));
@@ -267,12 +291,16 @@ function swiper_video_wrap() {
   for (let n = 2; n < swiper_videos.length + 2; n++) { // swiper_videos.length = 4
     if (n === 2) {
       secondSec(n, contents);
+
     } else if (n === 3) {
       thirdSec(n, contents);
+
     } else if (n === 4) {
       forthSec(n, contents);
+
     } else if (n === 5) {
       fifthSec(n, contents);
+      console.log(4, contents)
     }
   }
 }
@@ -283,22 +311,25 @@ function secondSec(n, contents) { // 2번째 슬라이드
     const swiper_slides = document.querySelectorAll(`.categories${n} .slide`);
     contents = response['results'];
     contents.forEach((value, idx) => {
-      if (!value.poster_path) contents.splice(idx, 1); // 이게 맞나?
+      if (!value.poster_path) contents.splice(idx, 1);
     });
+    console.log(1, contents)
+
     slideData(swiper_slides.length, n, contents);
     })
   .catch(err => console.error(err));
 }
 function thirdSec(n, contents) { // 3번째 슬라이드
-  selectedGenre = details.genres[0];
-  fetch(`https://api.themoviedb.org/3/discover/tv?include_adult=true&language=ko-KR&page=1&sort_by=popularity.desc&with_genres=${selectedGenre.id}&with_origin_country=${details.country[0]}`, options)
+  fetch(`https://api.themoviedb.org/3/discover/tv?include_adult=true&language=ko-KR&page=1&sort_by=popularity.desc&with_genres=${16}&with_origin_country=${details.country[0]}`, options)
   .then(response => response.json())
   .then(response => {
     const swiper_slides = document.querySelectorAll(`.categories${n} .slide`);
     contents = response['results'];
     contents.forEach((value, idx) => {
-      if (!value.poster_path) contents.splice(idx, 1); // 이게 맞나?
+      if (!value.poster_path) contents.splice(idx, 1);
     });
+    console.log(2, contents)
+
     slideData(swiper_slides.length, n, contents);
     })
   .catch(err => console.error(err));
@@ -310,9 +341,10 @@ function forthSec(n, contents) { // 4번째 슬라이드
     const swiper_slides = document.querySelectorAll(`.categories${n} .slide`);
     contents = response['results'];
     contents.forEach((value, idx) => {
-      if (!value.poster_path) contents.splice(idx, 1); // 이게 맞나?
-      
+      if (!value.poster_path) contents.splice(idx, 1);
     });
+    console.log(3, contents)
+    
     slideData(swiper_slides.length, n, contents);
     })
   .catch(err => console.error(err));
@@ -324,8 +356,10 @@ function fifthSec(n, contents) { // 5번째 슬라이드
     const swiper_slides = document.querySelectorAll(`.categories${n} .slide`);
     contents = response['results'];
     contents.forEach((value, idx) => {
-      if (!value.poster_path) contents.splice(idx, 1); // 이게 맞나?
+      if (!value.poster_path) contents.splice(idx, 1);
     });
+    console.log(4, contents)
+
     slideBG(swiper_slides.length, n, contents);
     })
   .catch(err => console.error(err));
@@ -333,6 +367,8 @@ function fifthSec(n, contents) { // 5번째 슬라이드
 function slideBG(slides, n, contents) { // 5번째 슬라이드 BG
   for (let i = 0; i < slides; i++) {
     const swiper_slide = document.querySelector(`.categories${n} .slide${i + 1}`);
+    // label
+    labeling(swiper_slide, i, contents);
 
     // poster
     const imgURL = contents[i].poster_path;
@@ -340,14 +376,33 @@ function slideBG(slides, n, contents) { // 5번째 슬라이드 BG
     swiper_slide.style.background = `url(${image}) no-repeat center / cover`;
   }
 }
+function labeling(slides, i, contents) { // new, label 삽입("1999-09-20")
+  compareDate = new Date(contents[i].first_air_date); // tv 'first_air_date' sec3 sec4
+  if (contents[i].release_date) { // 영화 'release_date' sec2  sec5
+    compareDate = new Date(contents[i].release_date);
+  }
+  const currentDate = new Date(); // 현재 기준 날짜
+  const label = document.createElement('div');
 
+  if (currentDate.getFullYear() == compareDate.getFullYear()) {
+    label.className = 'new year';
+    if (currentDate.getMonth() == compareDate.getMonth()) {
+    } else if (currentDate.getMonth() - 1 <= compareDate.getMonth()) {
+      label.className = 'new added';
+    }
+    slides.append(label);
+  }
+}
 function slideData(slides, n, contents) {
   // slide[i] 데이터 삽입
   for (let i = 0; i < slides; i++) {
     const swiper_slide = document.querySelector(`.categories${n} .slide${i + 1}`);
     const swiper_img = document.querySelector(`.categories${n} .slide${i + 1} .slide_inbox img`);
-    const swiper_genre_lists = document.querySelectorAll(`.categories${n} .slide${i + 1} .genre_list .list`);
+    const swiper_genre_ul = document.querySelector(`.categories${n} .slide${i + 1} .genre_list`);
     const swiper_percent = document.querySelector(`.categories${n} .slide${i + 1} .match_list .percent span`);
+
+    // label 삽입
+    labeling(swiper_slide, i, contents);
 
     // poster
     const imgURL = contents[i].poster_path;
@@ -357,25 +412,29 @@ function slideData(slides, n, contents) {
 
     // in_box
     // 장르 삽입
-    const item_genres = contents[i].genre_ids;
-    swiper_genre_lists.forEach((list, idx) => { 
-    details.genres.forEach(genre => { // 연산 최소화 하기
-      if (selectedGenre.id === item_genres[idx]) { // 같은 카테고리와 장르 제외
-        return list.style.display = 'none';
-      } else if (genre.id === item_genres[idx]) {
-        return list.textContent = genre.name;
-      }
-    });
-  });
-  // 투표수
-  const vote = contents[i].vote_average;
-  swiper_percent.textContent = vote.toFixed(1);
-  // vote 숫자에 따라서 색상 변경
-  // if (vote > 9) {
-  // } else if (vote > 7) {
-  // } else if (vote > 5) {
-  // } else {
-  // }
+    const item_genres = contents[i].genre_ids; 
+    item_genres.forEach((value, index) => {
+      if (index > 2) return;
+      const li = document.createElement('li');
+      li.classList = 'list';
+      details.genres.forEach((genre, idx) => {
+        if (value === genre.id) {
+          li.textContent = details.genres[idx].name;
+          return swiper_genre_ul.append(li);
+        }
+      });
+      // li.textContent = '';
+    })
+
+    // 투표수
+    const vote = contents[i].vote_average;
+    swiper_percent.textContent = vote.toFixed(1);
+    // vote 숫자에 따라서 색상 변경
+    // if (vote > 9) {
+    // } else if (vote > 7) {
+    // } else if (vote > 5) {
+    // } else {
+    // }
   }
   contents = ''; // 초기화
 }

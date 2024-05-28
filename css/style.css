@@ -5,6 +5,8 @@ body {
   width: 100%;
   height: 100%;
   background-color: #0C0C0C;
+
+  overflow-x: hidden;
 }
 
 /* account_section */
@@ -121,7 +123,7 @@ body {
 }
 .banner_bg {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: absolute;
   top: 0;
   left: 0;
@@ -323,7 +325,7 @@ header {
 /* --------------------------------------- */
 /* categories1 */
 .categories1 {
-  margin-top: 135px;
+  margin-top: 215px;
 }
 
 /* --------------------------------------- */
@@ -378,7 +380,7 @@ footer .footer_wrap {
   height: 30px;
   border: 1px solid #808080;
   color: #808080;
-  font-size: 13px;
+  font-size: 11px;
   text-transform: capitalize;
 
   display: flex;
@@ -400,11 +402,11 @@ footer .footer_wrap {
 }
 
 /* --------------------------------------- */
-/* new added */
+/* new */
 .new {
-  width: 115px;
+  width: 145px;
   height: 25px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 800;
   color: white;
   text-transform: capitalize;
@@ -418,11 +420,28 @@ footer .footer_wrap {
   justify-content: center;
   align-items: center;
   padding: 0 12px;
-}
 
+  position: absolute;
+  bottom: 0;
+}
+/* new add */
+.new.added::before {
+  content: 'recently added';
+}
 /* new season */
-.season {
-  width: 101px;
+.new.year::before {
+  content: 'this year';
+}
+.new.year {
+  width: 120px;
+}
+.categories5 .slide .new {
+  width: 100%;
+  bottom: -25px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .categories2 {
@@ -447,16 +466,25 @@ footer .footer_wrap {
   --swiper-navigation-sides-offset: 10px;
   --swiper-navigation-color: white;
 }
+.categories5 .swiper {
+  padding: 25px 0 !important;  
+}
 .swiper .slide {
   background-color: #808080;
   width: 294px;
-  height: 164px;
+  height: 400px;
   transform: none !important;
   cursor: pointer;
   
   display: flex;
   justify-content: center;
   align-items: center;
+
+  border-radius: 8px;
+}
+.categories5 .swiper .slide {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 .swiper .swiper-pagination {
   position: relative;
@@ -482,15 +510,11 @@ footer .footer_wrap {
   top: calc(50% + 3px) !important;
   transform: translateY(-50%);
   width: 60px !important;
-  height: 164px !important;
+  height: 100% !important;
   margin-top: 0 !important;
   transition: 0.3s;
 }
-.video5 .swiper-button-next,
-.video5 .swiper-button-pre {
-  height: 210px !important;
-  top: calc(50% + 12px) !important;
-}
+
 .swiper .swiper-button-next.on,
 .swiper .swiper-button-prev.on {
   opacity: 0 !important;
@@ -498,17 +522,18 @@ footer .footer_wrap {
 .video_wrapper:hover ~ .swiper-button-next, 
 .video_wrapper:hover ~ .swiper-button-prev {
   opacity: 1 !important;
-  background-color: rgba(0, 0, 0, 0.5);
 }
-.swiper .swiper-button-next:hover,
+.swiper .swiper-button-next:hover {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+}
 .swiper .swiper-button-prev:hover {
-  background-color: rgba(0, 0, 0, 0.3);  
+  background: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
 }
 
 /* categories5 */
 .categories5 .slide {
-  width: 147px !important;
-  height: 210px;
+  /* width: 147px !important; */
+  height: 320px;
 }
 .categories5 .swiper .slide::before {
   content: '';
@@ -567,7 +592,7 @@ footer .footer_wrap {
 .slide .slide_inbox{
   width: 430px;
   background-color: #0C0C0C;
-  border: 1px solid white;
+  border: 1px solid #c7c7c7;
   border-radius: 5px;
   overflow: hidden;
   z-index: -1;
@@ -652,7 +677,7 @@ footer .footer_wrap {
   margin-bottom: 21px;
 }
 .inbox .genre_list .list {
-  margin-right: 23px;
+  margin-right: 18px;
 }
 .inbox .genre_list .list:last-child {
   margin-right: 0;

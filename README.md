@@ -4,6 +4,8 @@ TMDB API 기반, 영화-TV 추천 웹사이트
 https://inseong01.github.io/TMDB-netflix/   
 
 ## 작업일자   
+- 5.29. 2h    
+발견 오류 수정
 - 5.28. 4h  
 영화/TV 라벨링, 장르 데이터 삽입 개선  
 - 5.27. 1h   
@@ -25,17 +27,20 @@ html/css 작업
 UI 디자인 시안 제작
 
 
-## 발견한 오류   
-- 클릭된 categories 외 다른 부분 선택하면 in_box 창 닫히도록
-- 마지막 섹션은 클릭하면 화살표 막히지 않게, z-index 올라오지 않도록
+## 발견한 오류 / 개선할 것들   
 - categories 클릭하면 네비게이션 자연스럽게 전환
 - categories1, 클릭 시 in_box 목록에서 같은 장르 제거되지 않음 (비/동기 부분 의심)
-- Fantasy TV 'backdrop_path' 없음
+- 사진 보여지는 속도 느림
 
 ## 작업 세부내용
++ ## 5.29.
+  - 다른 곳 클릭 시 영화정보 창 닫힘 기능 추가
+  - 배너, "backdrop_path" undefinded 오류 수정   
+    : banner는 tv 프로그램만 나오도록 설정 했지만 모아둔 장르 데이터에는 tv 뿐만 아니라 movie의 장르도 같이 있었음. fetch에서 오류가 나면 catch 부분에서 movie로 다시 검색할 수 있도록 수정
+
 + ## 5.28.
   - 영화/TV 프로그램 라벨링  
-    : new Date(), append() 활용하여  
+    : new Date(), append() 활용  
     현재 날짜 기준과 부여한 조건에 부합하면 class명 부여 (CSS 사전작업)    
 
   -  장르 데이터 삽입 개선    

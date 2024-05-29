@@ -29,16 +29,20 @@ const swiper5 = new Swiper('.video5', {
   spaceBetween: 140,
 });
 
-// slide
+// slide 선택
 const $sec = document.querySelectorAll('.sec');
 const $swiper_wrapper = document.querySelectorAll('.swiper-wrapper');
 const $slides = document.querySelectorAll('.swiper-slide.slide');
 const $slide_inbox = document.querySelector('.slide .slide_inbox');
+const $main_sec = document.querySelector('.main_section');
+const $banner_bg = document.querySelector('.banner_bg');
 
 for (let slide of $slides) {
   slide.addEventListener('click', function() {
+    // 선택한 slide .active 화면 띄움
     this.classList.toggle('active');
     for (let sibling of $slides) {
+      // 그 외 slide는 .active 안 됨
       if (this !== sibling) {
         sibling.classList.remove('active');
       }
@@ -47,7 +51,10 @@ for (let slide of $slides) {
     for(let sec of $sec) {
       // 선택된 slide의 .sec, z-index 앞으로
       sec.addEventListener('click', function() {
+        // sec5 .active 적용 제외
+        if (this.classList.value.includes('categories5')) return;
         this.classList.add('active');
+        console.log(this.classList.value)
         for (let sibling of $sec) {
           if (this !== sibling) {
             sibling.classList.remove('active');
@@ -60,7 +67,15 @@ for (let slide of $slides) {
       });
     }
   });
+  
+  window.addEventListener('click', function(e) {
+    // slide 외 다른 곳 누르면 닫힘
+    if (e.target == $main_sec || e.target == $banner_bg) {
+      slide.classList.remove('active');
+    }
+  });
 }
+
 
 // api
 // function createSlide() {
@@ -256,10 +271,29 @@ function createRandomGenre() { // randomGenre
   selectedGenre = details.genres[index];
   const c1_headertxt = document.querySelector(`.categories1 .headtext span`);
   c1_headertxt.textContent = selectedGenre.name;
-  return selectedGenre;
+  return selectedGenre.id = 14;
 }
 function firstSec() { // section1, genre 랜덤 선택
+  console.log(selectedGenre.id);
   fetch(`https://api.themoviedb.org/3/discover/tv?include_adult=true&language=ko-KR&page=1&sort_by=vote_count.desc&with_genres=${selectedGenre.id}`, options)
+  .then(response => response.json())
+  .then(response => {
+    const swiper_slides = document.querySelectorAll(`.categories1 .slide`);
+    contents = response['results'];
+    contents.forEach((value, idx) => {
+      if (!value.poster_path) contents.splice(idx, 1);
+    });
+    createBanner(contents);
+    slideData(swiper_slides.length, 1, contents);
+  })
+  .catch(err => {
+    console.error(err);
+    // 오류처리, backdrop_path 없으면 movie로 검색
+    return discoverMovie();
+  });
+}
+function discoverMovie() {
+  fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=true&language=ko-KR&page=1&sort_by=vote_count.desc&with_genres=${selectedGenre.id}`, options)
   .then(response => response.json())
   .then(response => {
     const swiper_slides = document.querySelectorAll(`.categories1 .slide`);
@@ -273,13 +307,18 @@ function firstSec() { // section1, genre 랜덤 선택
   .catch(err => console.error(err));
 }
 function createBanner(contents) { // 배너 정보 삽입
-  const banner_bg = document.querySelector('.banner_bg img');
+  console.log(1, contents[0].backdrop_path)
+  if (!contents[0].backdrop_path) return discoverMovie();
   const imgURL = contents[0].backdrop_path;
+  const banner_bg = document.querySelector('.banner_bg img');
   const image = `https://image.tmdb.org/t/p/original${imgURL}`;
 
   const banner_title = document.querySelector('.video_content .title');
   const banner_story = document.querySelector('.video_content .story');
   banner_title.textContent = contents[0].name;
+  if (!banner_title.textContent) { // 영화는 title, TV는 name
+    banner_title.textContent = contents[0].title;
+  }
   banner_story.textContent = contents[0].overview;
 
   banner_bg.src = image;

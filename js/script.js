@@ -282,23 +282,43 @@ let compareDate;
 let allContent = []; // (4) [Array(19), Array(20), Array(20), Array(20)]
 let secNumber = 2;
 
-function genreCreater() { // genres 추출
-  fetch('https://api.themoviedb.org/3/genre/movie/list?language=ko-KR', options)
+let startT;
+let endT;
+let complete = 0;
+
+function tvGenres() {
+  fetch('https://api.themoviedb.org/3/genre/tv/list?language=ko-KR', options)
     .then(response => response.json())
     .then(response => {
-      details.movie.push(response.genres)
-      fetch('https://api.themoviedb.org/3/genre/tv/list?language=ko-KR', options)
-        .then(response => response.json())
-        .then(response => {
-          details.tv.push(response.genres)
-          const gatherGenres = details.tv.concat(details.movie).flat();
-          console.log('---complete create genres---');
-          return details.genres['all'].push(gatherGenres);
-        })
-        .catch(err => console.error(err));
+      startT = new Date().getMilliseconds();
+      details.tv.push(response.genres);
+      return complete++;
     })
     .catch(err => console.error(err));
-  return;
+}
+function movieGenres() {
+  fetch('https://api.themoviedb.org/3/genre/movie/list?language=ko-KR', options)
+  .then(response => response.json())
+  .then(response => {
+    endT = new Date().getMilliseconds();
+    details.movie.push(response.genres)
+    return complete++;
+  })
+  .catch(err => console.error(err));
+}
+function genrePush() {
+    const gatherGenres = details.tv.concat(details.movie).flat();
+    details.genres['all'].push(gatherGenres)
+    console.log("complete: ", complete);
+    console.log("gatherGenres: ", gatherGenres);
+    console.log("details.genres['all']: ", details.genres['all']);
+}
+function genreCreater() { // genres 추출 (+로딩 표시 제작)
+  tvGenres();
+  movieGenres();
+  setTimeout(() => {
+    genrePush();
+  }, 530);
 }
 // section1/2/3/4/5
 function createSec12345() {
@@ -307,7 +327,6 @@ function createSec12345() {
 }
 function createRandomGenre() { // randomGenre
   let index = Math.floor(Math.random() * details.genres.all.length);
-  console.log(index)
   selectedGenre = details.genres.all[0][index];
   const c1_headertxt = document.querySelector(`.categories1 .headtext span`);
   c1_headertxt.textContent = selectedGenre.name;
@@ -316,24 +335,11 @@ function createRandomGenre() { // randomGenre
   return selectedGenre.id;
 }
 function swiper_video_wrap() {
-  setTimeout(() => {
-    firstSec()
-  }, 0);
-  setTimeout(() => {
-    secondSec(secNumber++, contents)
-  }, 0);
-  setTimeout(() => {
-    thirdSec(secNumber++, contents)
-  }, 0);
-  setTimeout(() => {
-    forthSec(secNumber++, contents)
-  }, 0);
-  setTimeout(() => {
-    fifthSec(secNumber++, contents)
-  }, 0);
-  setTimeout(() => { // delay로 contents 받음
-    collectContents()
-  }, 1800);
+  firstSec()
+  secondSec(2, contents);
+  thirdSec(3, contents);
+  forthSec(4, contents);
+  fifthSec(5, contents);
 }
 function createBanner(contents) { // 배너 정보 삽입
   const imgURL = contents[0].backdrop_path;
@@ -506,12 +512,11 @@ function slideData(slides, n, contents) {
       const li = document.createElement('li');
       li.classList = 'list';
       details.genres.all[0].forEach((genre, idx) => {
-        console.log('value:', value, 'genre:', genre.id, 'idx:', idx);
         details.genres['ko'].forEach(g => { // 번역되지 않은 장르면
           if (value === g.id) {
             li.textContent = g.name;
             inbox_genre_ul.append(li);
-            return console.log(value, g, g.id);
+            return;
           }
         })
         if (value === genre.id) { // 장르가 일치하면
@@ -542,20 +547,6 @@ function slideData(slides, n, contents) {
   }
   contents = '';
   return n;
-}
-let collects
-function collectContents() {
-  // 모든 데이터가 저장된 곳(allContent)에서 선택한 slide의 index 값으로 해당 데이터 반환
-  switch (1) {
-    case 1 :
-      allContent.push(content1.flat());
-      allContent.push(content2); 
-      allContent.push(content3);
-      allContent.push(content4);
-      collects = allContent.flat();
-      console.log('---All content collected---')
-      break;
-  }
 }
 
 // 초기 화면

@@ -326,10 +326,11 @@ function createSec12345() {
   swiper_video_wrap();
 }
 function createRandomGenre() { // randomGenre
-  let index = Math.floor(Math.random() * details.genres.all.length);
+  let index = Math.floor(Math.random() * details.genres.all[0].length);
   selectedGenre = details.genres.all[0][index];
   const c1_headertxt = document.querySelector(`.categories1 .headtext span`);
   c1_headertxt.textContent = selectedGenre.name;
+  console.log(index)
   console.log(selectedGenre)
   console.log(c1_headertxt.textContent)
   return selectedGenre.id;

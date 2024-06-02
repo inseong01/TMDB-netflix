@@ -41,6 +41,7 @@ UI 디자인 시안 제작
   - 로딩 개선
     - categories1,2,3,4,5/장르 데이터 생성 동기 처리
     - script.js defer 적용
+    - swiper script 중복 제거
 + ## 6.1.
   - 로딩 개선   
     - 이미지 파일 용량 최소화(webp로 교체)

@@ -329,12 +329,13 @@ function genreCreater(language) { // genres 추출 (+로딩 표시 제작)
 function translateLanguage(range, language) {
   switch(language) {
     case 'en' :
-      if (range === 'movie') {
-        range_en = 'MOVIE';
-      } else if (range === 'tv') {
+      let range_en;
+      if (range === 'tv') {
         range_en = 'TV SERIES';
+      } else if (range === 'movie') {
+        range_en = 'movie'
       }
-      headtitles[0].innerHTML = `recommend <span>${range_en}</span>`
+      headtitles[0].innerHTML = `recommend <span></span> <span>${range_en}</span>`
       headtitles[1].innerHTML = `Most Voted <span>${range_en}</span>`
       headtitles[2].innerHTML = `Anime Origned By Japan`
       headtitles[3].innerHTML = `Top Rate <span>${range_en}</span>`
@@ -347,8 +348,8 @@ function translateLanguage(range, language) {
       } else if (range === 'tv') {
         range_ko = 'TV 시리즈';
       }
-      headtitles[0].innerHTML = `추천드리는 <span>${range_ko}</span>`
-      headtitles[1].innerHTML = `가장 많이 평가한 <span>${range_ko}</span>`
+      headtitles[0].innerHTML = `추천하는 <span></span> <span>${range_ko}</span>`
+      headtitles[1].innerHTML = `가장 좋은 평가를 받은 <span>${range_ko}</span>`
       headtitles[2].innerHTML = `일본 원작 애니메이션 시리즈`
       headtitles[3].innerHTML = `가장 유명한 <span>${range_ko}</span>`
       headtitles[4].innerHTML = `인기있는 10편의 <span>${range_ko}</span>`
@@ -357,8 +358,8 @@ function translateLanguage(range, language) {
 }
 // section1/2/3/4/5
 function createSec12345(range, language) {
+  translateLanguage(range, language);
   createRandomGenre(range);
-  translateLanguage(range, language)
   swiper_video_wrap(range, language);
 }
 let index;
@@ -596,7 +597,7 @@ profiles.forEach(value => {
 })
 // 언어 선택: data 받음
 lang_lists.forEach(value => {
-  value.addEventListener('click', function(range) {
+  value.addEventListener('click', function() {
     lang_lists.forEach(siblings => {
       if (this !== siblings) {
         siblings.classList.remove('active');
@@ -609,29 +610,11 @@ lang_lists.forEach(value => {
       case 'en' :
         title1.textContent = 'Choose What Interests You'
         title2.textContent = 'movie'
-        lang_lists[0].textContent = 'Korean'
-        lang_lists[1].textContent = 'English'
-        headtitles[0].innerHTML = `recommend <span>${range}</span>`
-        headtitles[1].innerHTML = `Most Voted <span>${range}</span>`
-        headtitles[2].innerHTML = `Anime Origned By Japan`
-        headtitles[3].innerHTML = `Top Rate <span>${range}</span>`
-        headtitles[4].innerHTML = `Top 10 Popular <span>${range}</span>`
         genreCreater(language);
         break;
       default :
-      let range_ko;
-        if (range === 'movie') {
-          range_ko = '영화';
-        }
         title1.textContent = '관심있는 분야를 선택하세요'
         title2.textContent = '영화'
-        lang_lists[0].textContent = '한국어'
-        lang_lists[1].textContent = '영어'
-        headtitles[0].innerHTML = `가장 추천드리는 <span>${range_ko}</span>`
-        headtitles[1].innerHTML = `가장 많이 평가한 <span>${range_ko}</span>`
-        headtitles[2].innerHTML = `일본 원작 애니메이션`
-        headtitles[3].innerHTML = `가장 유명한 <span>${range_ko}</span>`
-        headtitles[4].innerHTML = `인기있는 탑 10 <span>${range_ko}</span>`
         genreCreater(language);
         break;
     }

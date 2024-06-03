@@ -153,6 +153,24 @@ for (let slide of $slides) {
 // }
 
 const swiper_videos = document.querySelectorAll(`.swiper.video`);
+const account_section = document.querySelector('.account_section');
+const profiles = document.querySelectorAll('.profile');
+const main_section = document.querySelector('.main_section');
+const profileImg = document.querySelector('.menu_list_right .profile img');
+const lang_lists = document.querySelectorAll('.account_section .bottom .list');
+const title1 = document.querySelector('.account_section .title');
+const title2 = document.querySelector('.account_section .box2 .name');
+const headtitles = document.querySelectorAll('.headtext');
+
+let language = 'ko-KR';
+let range;
+let userImg_src;
+let contents;
+let selectedGenre;
+let compareDate;
+let secNumber = 2;
+let complete = 0;
+// -------------------
 const options = { // 초기설정
   method: 'GET',
   headers: {
@@ -168,7 +186,7 @@ const details = {
       {id: 10762, name: '어린이'},
       {id: 10763, name: '뉴스'},
       {id: 10764, name: '리얼리티'},
-      {id: 10765, name: 'SF 및 판타지'},
+      {id: 10765, name: 'SF 판타지'},
       {id: 10766, name: '연속 홈 드라마'},
       {id: 10767, name: '토크'},
       {id: 10768, name: '전쟁 & 정치'}
@@ -272,35 +290,21 @@ const details = {
   // ],
   country: ['JP'],
 }
-let contents;
-let content1;
-let content2;
-let content3;
-let content4;
-let selectedGenre;
-let compareDate;
-let allContent = []; // (4) [Array(19), Array(20), Array(20), Array(20)]
-let secNumber = 2;
+// -------------------
 
-let startT;
-let endT;
-let complete = 0;
-
-function tvGenres() {
-  fetch('https://api.themoviedb.org/3/genre/tv/list?language=ko-KR', options)
+function tvGenres(language) {
+  fetch(`https://api.themoviedb.org/3/genre/tv/list?language=${language}`, options)
     .then(response => response.json())
     .then(response => {
-      startT = new Date().getMilliseconds();
       details.tv.push(response.genres);
       return complete++;
     })
     .catch(err => console.error(err));
 }
-function movieGenres() {
-  fetch('https://api.themoviedb.org/3/genre/movie/list?language=ko-KR', options)
+function movieGenres(language) {
+  fetch(`https://api.themoviedb.org/3/genre/movie/list?language=${language}`, options)
   .then(response => response.json())
   .then(response => {
-    endT = new Date().getMilliseconds();
     details.movie.push(response.genres)
     return complete++;
   })
@@ -309,41 +313,86 @@ function movieGenres() {
 function genrePush() {
     const gatherGenres = details.tv.concat(details.movie).flat();
     details.genres['all'].push(gatherGenres)
-    console.log("complete: ", complete);
-    console.log("gatherGenres: ", gatherGenres);
-    console.log("details.genres['all']: ", details.genres['all']);
 }
-function genreCreater() { // genres 추출 (+로딩 표시 제작)
-  tvGenres();
-  movieGenres();
+function genreCreater(language) { // genres 추출 (+로딩 표시 제작)
+  if (details.genres.all[0]) {
+    details.genres.all.pop()
+    details.tv.pop()
+    details.movie.pop()
+  }
+  tvGenres(language);
+  movieGenres(language);
   setTimeout(() => {
     genrePush();
   }, 530);
 }
-// section1/2/3/4/5
-function createSec12345() {
-  createRandomGenre();
-  swiper_video_wrap();
+function translateLanguage(range, language) {
+  switch(language) {
+    case 'en' :
+      if (range === 'movie') {
+        range_en = 'MOVIE';
+      } else if (range === 'tv') {
+        range_en = 'TV SERIES';
+      }
+      headtitles[0].innerHTML = `recommend <span>${range_en}</span>`
+      headtitles[1].innerHTML = `Most Voted <span>${range_en}</span>`
+      headtitles[2].innerHTML = `Anime Origned By Japan`
+      headtitles[3].innerHTML = `Top Rate <span>${range_en}</span>`
+      headtitles[4].innerHTML = `Top 10 Popular <span>${range_en}</span>`
+      break;
+    default :
+    let range_ko;
+      if (range === 'movie') {
+        range_ko = '영화';
+      } else if (range === 'tv') {
+        range_ko = 'TV 시리즈';
+      }
+      headtitles[0].innerHTML = `추천드리는 <span>${range_ko}</span>`
+      headtitles[1].innerHTML = `가장 많이 평가한 <span>${range_ko}</span>`
+      headtitles[2].innerHTML = `일본 원작 애니메이션 시리즈`
+      headtitles[3].innerHTML = `가장 유명한 <span>${range_ko}</span>`
+      headtitles[4].innerHTML = `인기있는 10편의 <span>${range_ko}</span>`
+      break;
+  }
 }
-function createRandomGenre() { // randomGenre
-  let index = Math.floor(Math.random() * details.genres.all[0].length);
-  selectedGenre = details.genres.all[0][index];
+// section1/2/3/4/5
+function createSec12345(range, language) {
+  createRandomGenre(range);
+  translateLanguage(range, language)
+  swiper_video_wrap(range, language);
+}
+let index;
+function createRandomGenre(range) { // randomGenre
+  index = Math.floor(Math.random() * details[range].flat().length);
+  selectedGenre = details[range].flat()[index];
   const c1_headertxt = document.querySelector(`.categories1 .headtext span`);
   c1_headertxt.textContent = selectedGenre.name;
-  console.log(index)
-  console.log(selectedGenre)
-  console.log(c1_headertxt.textContent)
   return selectedGenre.id;
 }
-function swiper_video_wrap() {
-  firstSec()
-  secondSec(2, contents);
-  thirdSec(3, contents);
-  forthSec(4, contents);
-  fifthSec(5, contents);
+function swiper_video_wrap(range, language) {
+  firstSec(range, language);
+  secondSec(2, contents, range, language);
+  thirdSec(3, contents, range, language);
+  forthSec(4, contents, range, language);
+  fifthSec(5, contents, range, language);
+}
+
+function firstSec(range, language) { // section1, genre 랜덤 선택
+  fetch(`https://api.themoviedb.org/3/discover/${range}?include_adult=true&language=${language}&page=1&sort_by=vote_count.desc&with_genres=${selectedGenre.id}`, options)
+    .then(response => response.json())
+    .then(response => {
+      const swiper_slides = document.querySelectorAll(`.categories1 .slide`);
+      contents = response['results'];
+      contents.forEach((value, idx) => {
+        if (!value.backdrop_path) contents.splice(idx, 1);
+      });
+      createBanner(contents);
+      slideData(swiper_slides.length, 1, contents, language);
+    })
+    .catch(err => console.error(err));
 }
 function createBanner(contents) { // 배너 정보 삽입
-  const imgURL = contents[0].backdrop_path;
+  let imgURL = contents[0].backdrop_path;;
   const banner_bg = document.querySelector('.banner_bg img');
   const image = `https://image.tmdb.org/t/p/original${imgURL}`;
   
@@ -354,47 +403,12 @@ function createBanner(contents) { // 배너 정보 삽입
     banner_title.textContent = contents[0].title;
   }
   banner_story.textContent = contents[0].overview;
-  
   banner_bg.src = image;
   contents.shift();
-  return content1 = contents.slice(0, 10);
+  return;
 }
-function discoverMovie() {
-  fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=true&language=ko-KR&page=1&sort_by=vote_count.desc&with_genres=${selectedGenre.id}`, options)
-  .then(response => response.json())
-  .then(response => {
-    const swiper_slides = document.querySelectorAll(`.categories1 .slide`);
-    contents = response['results'];
-    contents.forEach((value, idx) => {
-      if (!value.poster_path) contents.splice(idx, 1);
-    });
-    createBanner(contents);
-    slideData(swiper_slides.length, 1, contents);
-  })
-  .catch(err => console.error(err));
-}
-function firstSec() { // section1, genre 랜덤 선택
-  fetch(`https://api.themoviedb.org/3/discover/tv?include_adult=true&language=ko-KR&page=1&sort_by=vote_count.desc&with_genres=${selectedGenre.id}`, options)
-  .then(response => response.json())
-  .then(response => {
-    const swiper_slides = document.querySelectorAll(`.categories1 .slide`);
-    contents = response['results'];
-    contents.forEach((value, idx) => {
-      if (!value.poster_path) { 
-        contents.splice(idx, 1);
-      }
-    });
-    createBanner(contents);
-    slideData(swiper_slides.length, 1, contents);
-    console.log(1)
-  })
-  .catch(err => {
-    console.error(err);
-    return discoverMovie(); // backdrop_path 없으면 movie로 검색
-  });
-}
-function secondSec(n, contents) { // 2번째 슬라이드
-  fetch(`https://api.themoviedb.org/3/discover/movie?language=ko-KR&page=1&sort_by=vote_count.desc`, options)
+function secondSec(n, contents, range, language) { // 2번째 슬라이드
+  fetch(`https://api.themoviedb.org/3/discover/${range}?language=${language}&page=1&sort_by=vote_count.desc`, options)
   .then(response => response.json())
   .then(response => {
     const swiper_slides = document.querySelectorAll(`.categories${n} .slide`);
@@ -403,13 +417,12 @@ function secondSec(n, contents) { // 2번째 슬라이드
     contents.forEach((value, idx) => {
       if (!value.poster_path) contents.splice(idx, 1);
     });
-    slideData(swiper_slides.length, n, contents);
-    console.log(2)
+    slideData(swiper_slides.length, n, contents, language);
     })
   .catch(err => console.error(err));
 }
-function thirdSec(n, contents) { // 3번째 슬라이드
-  fetch(`https://api.themoviedb.org/3/discover/tv?include_adult=true&language=ko-KR&page=1&sort_by=popularity.desc&with_genres=${16}&with_origin_country=${details.country[0]}`, options)
+function thirdSec(n, contents, range, language) { // 3번째 슬라이드
+  fetch(`https://api.themoviedb.org/3/discover/${range}?include_adult=true&language=${language}&page=1&sort_by=popularity.desc&with_genres=${16}&with_origin_country=${details.country[0]}`, options)
   .then(response => response.json())
   .then(response => {
     const swiper_slides = document.querySelectorAll(`.categories${n} .slide`);
@@ -419,14 +432,12 @@ function thirdSec(n, contents) { // 3번째 슬라이드
       if (!value.poster_path) contents.splice(idx, 1);
     });
 
-    slideData(swiper_slides.length, n, contents);
-    console.log(3)
+    slideData(swiper_slides.length, n, contents, language);
     })
   .catch(err => console.error(err));
 }
-function forthSec(n, contents) { // 4번째 슬라이드
-  // console.log(4)
-  fetch(`https://api.themoviedb.org/3/tv/top_rated?language=ko-KR&page=1`, options)
+function forthSec(n, contents, range, language) { // 4번째 슬라이드
+  fetch(`https://api.themoviedb.org/3/${range}/top_rated?language=${language}&page=1`, options)
   .then(response => response.json())
   .then(response => {
     const swiper_slides = document.querySelectorAll(`.categories${n} .slide`);
@@ -436,14 +447,12 @@ function forthSec(n, contents) { // 4번째 슬라이드
       if (!value.poster_path) contents.splice(idx, 1);
     });
     
-    slideData(swiper_slides.length, n, contents);
-    console.log(4)
+    slideData(swiper_slides.length, n, contents, language);
     })
   .catch(err => console.error(err));
 }
-function fifthSec(n, contents) { // 5번째 슬라이드
-  // console.log(5)
-  fetch(`https://api.themoviedb.org/3/movie/popular?language=ko-KR&page=1&region=ko-KR`, options)
+function fifthSec(n, contents, range, language) { // 5번째 슬라이드
+  fetch(`https://api.themoviedb.org/3/${range}/popular?language=${language}&page=1&region=${language}`, options)
   .then(response => response.json())
   .then(response => {
     const swiper_slides = document.querySelectorAll(`.categories${n} .slide`);
@@ -484,7 +493,7 @@ function labeling(slide, i, contents) { // new, label 삽입("1999-09-20")
     slide.append(label);
   }
 }
-function slideData(slides, n, contents) {
+function slideData(slides, n, contents, language) {
   // slide[i] 데이터 삽입
   for (let i = 0; i < slides; i++) {
     const swiperSlide = document.querySelector(`.categories${n} .slide${i + 1}`);
@@ -513,13 +522,15 @@ function slideData(slides, n, contents) {
       const li = document.createElement('li');
       li.classList = 'list';
       details.genres.all[0].forEach((genre, idx) => {
-        details.genres['ko'].forEach(g => { // 번역되지 않은 장르면
-          if (value === g.id) {
-            li.textContent = g.name;
-            inbox_genre_ul.append(li);
-            return;
-          }
-        })
+        if (language === 'ko-KR') {
+          details.genres['ko'].forEach(g => { // 번역되지 않은 장르면
+            if (value === g.id) {
+              li.textContent = g.name;
+              inbox_genre_ul.append(li);
+              return;
+            }
+          })
+        }
         if (value === genre.id) { // 장르가 일치하면
           li.textContent = genre.name;
           inbox_genre_ul.append(li);
@@ -551,48 +562,81 @@ function slideData(slides, n, contents) {
 }
 
 // 초기 화면
-const account_section = document.querySelector('.account_section');
-const profiles = document.querySelectorAll('.profile');
-const main_section = document.querySelector('.main_section');
-const profileImg = document.querySelector('.menu_list_right .profile img');
-let user;
-let userImg_src;
-
-// 프로필 사진 연동
-function profileImgChange() {
-  profileImg.src = `${userImg_src}`;
-}
-
-// 선택한 계정으로 화면 전환
-function changeTab(user) {
-  switch (user) {
-    case 'owner' :
-      profileImgChange();
-      // 사용자 클릭하면 화면 전환
-      createSec12345();
+// 선택한 분야로 화면 전환
+function changeTab(range, language) {
+  switch (range) {
+    case 'tv' :
+      createSec12345(range, language);
+      account_section.style.display = 'none';
+      main_section.style.display = 'block';
+      break;
+    case 'movie' :
+      createSec12345(range, language);
       account_section.style.display = 'none';
       main_section.style.display = 'block';
       break;
     default :
-      alert('not ready');
+      alert('Not ready');
       break;
   }
 }
+
 function mainSecForm() {
   account_section.addEventListener('submit', function(e) {
     e.preventDefault();
-    changeTab(user);
+    changeTab(range, language);
   })
 }
-
-// 계정 선택: data 받아옴
+// 분야 선택: data 받음
 profiles.forEach(value => {
   value.addEventListener('click', function() {
-    user = this.getAttribute('data-tab');
-    userImg_src = value.firstElementChild.firstElementChild.src; // === img.src
-    return user;
+    range = this.getAttribute('data-tab');
+    return range;
+  });
+})
+// 언어 선택: data 받음
+lang_lists.forEach(value => {
+  value.addEventListener('click', function(range) {
+    lang_lists.forEach(siblings => {
+      if (this !== siblings) {
+        siblings.classList.remove('active');
+      }
+    });
+    value.classList.add('active');
+    language = this.getAttribute('data-language');
+    
+    switch(language) {
+      case 'en' :
+        title1.textContent = 'Choose What Interests You'
+        title2.textContent = 'movie'
+        lang_lists[0].textContent = 'Korean'
+        lang_lists[1].textContent = 'English'
+        headtitles[0].innerHTML = `recommend <span>${range}</span>`
+        headtitles[1].innerHTML = `Most Voted <span>${range}</span>`
+        headtitles[2].innerHTML = `Anime Origned By Japan`
+        headtitles[3].innerHTML = `Top Rate <span>${range}</span>`
+        headtitles[4].innerHTML = `Top 10 Popular <span>${range}</span>`
+        genreCreater(language);
+        break;
+      default :
+      let range_ko;
+        if (range === 'movie') {
+          range_ko = '영화';
+        }
+        title1.textContent = '관심있는 분야를 선택하세요'
+        title2.textContent = '영화'
+        lang_lists[0].textContent = '한국어'
+        lang_lists[1].textContent = '영어'
+        headtitles[0].innerHTML = `가장 추천드리는 <span>${range_ko}</span>`
+        headtitles[1].innerHTML = `가장 많이 평가한 <span>${range_ko}</span>`
+        headtitles[2].innerHTML = `일본 원작 애니메이션`
+        headtitles[3].innerHTML = `가장 유명한 <span>${range_ko}</span>`
+        headtitles[4].innerHTML = `인기있는 탑 10 <span>${range_ko}</span>`
+        genreCreater(language);
+        break;
+    }
   });
 })
 
-genreCreater();
+genreCreater(language);
 mainSecForm();

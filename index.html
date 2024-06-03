@@ -22,42 +22,30 @@
   <form class="account_section">
     <div class="wrap">
       <div class="top">
-        <h1 class="title">netflix를 시청할 프로필을 선택하세요.</h1>
+        <h1 class="title">관심있는 분야를 선택하세요.</h1>
       </div>
       <div class="center">
         <div class="profile_box box1">
-          <!-- 사용자 -->
-          <button href="#none" class="profile" data-tab="owner">
+          <!-- tv -->
+          <button href="#none" class="profile" data-tab="tv">
             <div class="profile_image">
-              <img src="./img/profile-icons/64623a33850498.56ba69ac2a6f7.webp" alt="">
+              <p class="name">TV</p>
             </div>
-            <p class="name">인성</p>
           </button>
         </div>
         <div class="profile_box box2">
-          <!-- 키즈 -->
-          <button href="#none" class="profile" data-tab="kids">
+          <!-- movie -->
+          <button href="#none" class="profile" data-tab="movie">
             <div class="profile_image">
-              <img src="./img/profile-icons/kids.webp" alt="">
+              <p class="name">영화</p>
             </div>
-            <p class="name">키즈</p>
-          </button>
-        </div>
-        <div class="profile_box box3">
-          <!-- 프로필 추가 -->
-          <button href="#none" class="profile" data-tab="add">
-            <div class="profile_image">
-              <img src="./img/profile.png" alt="">
-            </div>
-            <p class="name">프로필 추가</p>
           </button>
         </div>
       </div>
-      <div class="bottom">
-        <button href="#none" class="profile profile_manage" data-tab="manage">
-          <span>프로필 관리</span>
-        </button>
-      </div>
+      <ul class="bottom">
+        <li class="list active" data-language="ko-KR">한국어</li>
+        <li class="list" data-language="en">영어</li>
+      </ul>
     </div>
   </form>
 
@@ -69,34 +57,33 @@
         <header class="header">
           <ul class="menu_list_left">
             <li class="logo_box">
-              <a href="#none"><img src="./img/icons8-logo.webp" alt="" class="logo"></a>
+              <a href=""><img src="./img/icons8-logo.webp" alt="" class="logo"></a>
             </li>
-            <li class="list"><a href="#none">home</a></li>
+            <!-- <li class="list"><a href="#none">home</a></li>
             <li class="list"><a href="#none">tv shows</a></li>
             <li class="list"><a href="#none">movies</a></li>
             <li class="list"><a href="#none">new & popular</a></li>
             <li class="list"><a href="#none">my list</a></li>
-            <li class="list"><a href="#none">browser by language</a></li>
+            <li class="list"><a href="#none">browser by language</a></li> -->
           </ul>
           <ul class="menu_list_right">
-            <li class="list search">
+            <!-- <li class="list search">
               <a href="#none">
-                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 30 30" width="30px" height="30px"><path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 30 30" width="30px" height="30px"><path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.3508 23 17.597385 22.148986 19.322266 20.736328 L 25.2929 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.2929 L 20.736328 19.322266 C 22.148986 17.597385 23 15.3508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z"/></svg>
               </a>
             </li>
             <li class="list kids">
               <a href="#none">kids</a>
             </li>
             <li class="list alert">
-              <a href="#none"><img src="./img/icons8-alert-96.png" alt=""></a>
-            </li>
-            <li class="list profile">
+              <a href="#none"><img src="./img/icons8-alert-.png" alt=""></a>
+            </li> -->
+            <!-- <li class="list profile">
               <a href="#none">
                 <img src="" alt="">
                 <img src="./img/free-icon-arrow-down-filled-triangle-58979.webp" alt="" class="arrow">
               </a>
-              
-            </li>
+            </li> -->
           </ul>
         </header>
       
@@ -110,7 +97,7 @@
             <h1 class="title">new episode coming</h1>
 
             <p class="story">...</p>
-            <div class="btn_wrap">
+            <!-- <div class="btn_wrap">
               <button class="play btn">
                 <div class="wrap">
                   <img src="./img/play-button-arrowhead.png" alt="">
@@ -123,7 +110,7 @@
                   <span>more info</span>
                 </div>
               </button>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -134,7 +121,7 @@
 
     <!-- 1) video list -->
     <div class="categories1 sec">
-      <h1 class="headtext">Recommend <span></span> Shows</h1>
+      <h1 class="headtext"><span></span></h1>
       <div class="swiper">
         <div class="swiper-wrapper video_wrapper">
           <div class="swiper-slide slide slide1">
@@ -144,10 +131,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title">..</li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span>..</span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -167,10 +154,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -190,10 +177,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -213,10 +200,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -236,10 +223,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -259,10 +246,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -282,10 +269,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -305,10 +292,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -328,10 +315,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -351,10 +338,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -378,7 +365,7 @@
     
     <!-- 2) video list -->
     <div class="categories2 sec">
-      <h1 class="headtext">most voted movies</h1>
+      <h1 class="headtext"></h1>
       <div class="swiper video">
         <div class="swiper-wrapper video_wrapper">
           <div class="swiper-slide slide slide1">
@@ -388,10 +375,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -411,10 +398,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -434,10 +421,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -457,10 +444,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -480,10 +467,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -503,10 +490,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -526,10 +513,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -549,10 +536,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -572,10 +559,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -595,10 +582,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -622,7 +609,7 @@
 
     <!-- 3) video list -->
     <div class="categories3 sec">
-      <h1 class="headtext">Anime Series origned by japan</h1>
+      <h1 class="headtext"></h1>
       <div class="swiper video">
         <div class="swiper-wrapper video_wrapper">
           <div class="swiper-slide slide slide1">
@@ -632,10 +619,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -655,10 +642,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -678,10 +665,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -701,10 +688,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -724,10 +711,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -747,10 +734,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -770,10 +757,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -793,10 +780,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -816,10 +803,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -839,10 +826,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -866,7 +853,7 @@
 
     <!-- 4) video list -->
     <div class="categories4 sec">
-      <h1 class="headtext">top rate Series</h1>
+      <h1 class="headtext"></h1>
       <div class="swiper video">
         <div class="swiper-wrapper video_wrapper">
           <div class="swiper-slide slide slide1">
@@ -876,10 +863,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -899,10 +886,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -922,10 +909,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -945,10 +932,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -968,10 +955,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -991,10 +978,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -1014,10 +1001,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -1037,10 +1024,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -1060,10 +1047,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -1083,10 +1070,10 @@
               </div>
               <div class="inbox bottom">
                 <ul class="title_wrap">
-                  <li class="title">dddd</li>
+                  <li class="title"></li>
                 </ul>
                 <ul class="match_list">
-                  <div class="percent"><span>96</span>/10 vote</div>
+                  <div class="percent"><span></span>/10 vote</div>
                 </ul>
                 <ul class="genre_list">
                 </ul>
@@ -1110,7 +1097,7 @@
 
     <!-- 5) video rank -->
     <div class="categories5 sec">
-      <h1 class="headtext">top 10 popular movies</h1>
+      <h1 class="headtext"></h1>
       <div class="swiper video video5">
         <div class="swiper-wrapper video_wrapper">
           <div class="swiper-slide slide slide1"></div>
@@ -1189,9 +1176,6 @@
   </form>
 
   <!-- js -->
-  <!-- <script type="module">
-    import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
-  </script> -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
 </html>

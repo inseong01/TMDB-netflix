@@ -8,10 +8,33 @@ const swiper = new Swiper('.swiper', {
     el: '.swiper-pagination',
     type: 'bullets',
   },
-  slidesPerGroup: 3,
-  slidesPerView: 7,
+  slidesPerGroup: 7,
+  slidesPerView: 3,
   loop: false,
   spaceBetween: 16,
+  breakpoints: {
+    // when window width is >= px
+    0: {
+      slidesPerView: 1,
+      slidesPerGroup: 1,
+    },
+    700: {
+      slidesPerView: 3,
+      slidesPerGroup: 2,
+    },
+    1000: {
+      slidesPerView: 4,
+      slidesPerGroup: 3,
+    },
+    1300: {
+      slidesPerView: 5,
+      slidesPerGroup: 4,
+    },
+    1600: {
+      slidesPerView: 6,
+      slidesPerGroup: 5,
+    },
+  },
 });
 const swiper5 = new Swiper('.video5', {
   navigation: {
@@ -27,6 +50,31 @@ const swiper5 = new Swiper('.video5', {
   slidesPerGroup: 3,
   loop: false,
   spaceBetween: 140,
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+      slidesPerGroup: 1,
+      slidesOffsetBefore: 20,
+    },
+    600: {
+      slidesPerView: 2,
+      slidesPerGroup: 2,
+    },
+    900: {
+      slidesPerView: 3,
+      slidesPerGroup: 3,
+      slidesOffsetBefore: 80,
+    },
+    1250: {
+      slidesPerView: 4,
+      slidesPerGroup: 3,
+    },
+    1550: {
+      slidesPerView: 5,
+      slidesPerGroup: 3,
+      slidesOffsetBefore: 160,
+    },
+  }
 });
 
 // slide 선택
@@ -339,7 +387,7 @@ function translateLanguage(range, language) {
       headtitles[1].innerHTML = `Most Voted <span>${range_en}</span>`
       headtitles[2].innerHTML = `Anime Origned By Japan`
       headtitles[3].innerHTML = `Top Rate <span>${range_en}</span>`
-      headtitles[4].innerHTML = `Top 10 Popular <span>${range_en}</span>`
+      headtitles[4].innerHTML = `weekly trending <span>${range_en}</span> top 10`
       break;
     default :
     let range_ko;
@@ -349,25 +397,34 @@ function translateLanguage(range, language) {
         range_ko = 'TV 시리즈';
       }
       headtitles[0].innerHTML = `추천하는 <span></span> <span>${range_ko}</span>`
-      headtitles[1].innerHTML = `가장 좋은 평가를 받은 <span>${range_ko}</span>`
+      headtitles[1].innerHTML = `가장 많은 평가를 받은 <span>${range_ko}</span>`
       headtitles[2].innerHTML = `일본 원작 애니메이션 시리즈`
       headtitles[3].innerHTML = `가장 유명한 <span>${range_ko}</span>`
-      headtitles[4].innerHTML = `인기있는 10편의 <span>${range_ko}</span>`
+      headtitles[4].innerHTML = `주간 인기 <span>${range_ko}</span> 탑 10`
       break;
   }
 }
 // section1/2/3/4/5
 function createSec12345(range, language) {
   translateLanguage(range, language);
-  createRandomGenre(range);
+  createRandomGenre(range, language);
   swiper_video_wrap(range, language);
 }
 let index;
-function createRandomGenre(range) { // randomGenre
+function createRandomGenre(range, language) { // randomGenre
   index = Math.floor(Math.random() * details[range].flat().length);
   selectedGenre = details[range].flat()[index];
+if (selectedGenre.id === 37)  selectedGenre = details[range].flat()[index + 1];
   const c1_headertxt = document.querySelector(`.categories1 .headtext span`);
   c1_headertxt.textContent = selectedGenre.name;
+  if (language === 'ko-KR' ) {
+    for (let i = 0; i < details.genres['ko'].length; i++) {
+      if (selectedGenre.id === details.genres['ko'][i].id) {
+        return c1_headertxt.textContent =  details.genres['ko'][i].name;
+      }
+    }
+    return selectedGenre.id;
+  } 
   return selectedGenre.id;
 }
 function swiper_video_wrap(range, language) {
@@ -379,13 +436,15 @@ function swiper_video_wrap(range, language) {
 }
 
 function firstSec(range, language) { // section1, genre 랜덤 선택
-  fetch(`https://api.themoviedb.org/3/discover/${range}?include_adult=true&language=${language}&page=1&sort_by=vote_count.desc&with_genres=${selectedGenre.id}`, options)
+  fetch(`https://api.themoviedb.org/3/discover/${range}?include_adult=true&language=${language}&page=1&sort_by=vote_count.desc&with_genres=${selectedGenre.id}&with_origin_country=KR`, options)
     .then(response => response.json())
     .then(response => {
       const swiper_slides = document.querySelectorAll(`.categories1 .slide`);
       contents = response['results'];
       contents.forEach((value, idx) => {
-        if (!value.backdrop_path) contents.splice(idx, 1);
+        if (!value.poster_path || !value.backdrop_path) {
+          contents.splice(idx, 1);
+        }
       });
       createBanner(contents);
       slideData(swiper_slides.length, 1, contents, language);
@@ -393,7 +452,7 @@ function firstSec(range, language) { // section1, genre 랜덤 선택
     .catch(err => console.error(err));
 }
 function createBanner(contents) { // 배너 정보 삽입
-  let imgURL = contents[0].backdrop_path;;
+  let imgURL = contents[0].backdrop_path;
   const banner_bg = document.querySelector('.banner_bg img');
   const image = `https://image.tmdb.org/t/p/original${imgURL}`;
   
@@ -409,7 +468,7 @@ function createBanner(contents) { // 배너 정보 삽입
   return;
 }
 function secondSec(n, contents, range, language) { // 2번째 슬라이드
-  fetch(`https://api.themoviedb.org/3/discover/${range}?language=${language}&page=1&sort_by=vote_count.desc`, options)
+  fetch(`https://api.themoviedb.org/3/discover/${range}?language=${language}&page=1&sort_by=vote_count.desc&with_origin_country=KR`, options)
   .then(response => response.json())
   .then(response => {
     const swiper_slides = document.querySelectorAll(`.categories${n} .slide`);
@@ -438,7 +497,7 @@ function thirdSec(n, contents, range, language) { // 3번째 슬라이드
   .catch(err => console.error(err));
 }
 function forthSec(n, contents, range, language) { // 4번째 슬라이드
-  fetch(`https://api.themoviedb.org/3/${range}/top_rated?language=${language}&page=1`, options)
+  fetch(`https://api.themoviedb.org/3/${range}/top_rated?language=${language}&page=1&with_origin_country=KR`, options)
   .then(response => response.json())
   .then(response => {
     const swiper_slides = document.querySelectorAll(`.categories${n} .slide`);
@@ -453,7 +512,7 @@ function forthSec(n, contents, range, language) { // 4번째 슬라이드
   .catch(err => console.error(err));
 }
 function fifthSec(n, contents, range, language) { // 5번째 슬라이드
-  fetch(`https://api.themoviedb.org/3/${range}/popular?language=${language}&page=1&region=${language}`, options)
+  fetch(`https://api.themoviedb.org/3/trending/${range}/week?language=${language}`, options)
   .then(response => response.json())
   .then(response => {
     const swiper_slides = document.querySelectorAll(`.categories${n} .slide`);
@@ -473,7 +532,7 @@ function slideBG(slides, n, contents, language) { // 5번째 슬라이드 BG
     labeling(swiper_slide, i, contents, language);
 
     // poster
-    const imgURL =  `https://image.tmdb.org/t/p/original${contents[i].poster_path}`;
+    const imgURL =  `https://image.tmdb.org/t/p/w500${contents[i].poster_path}`;
     swiper_slide.style.background = `url(${imgURL}) no-repeat center / cover`;
   }
 }
@@ -505,6 +564,11 @@ function slideData(slides, n, contents, language) {
     const inbox_percent = document.querySelector(`.categories${n} .slide${i + 1} .percent span`);
     const inbox_like = document.querySelector(`.categories${n} .slide${i + 1} .like_list`);
 
+    // 섬네일 또는 contents가 없으면
+    if (!contents[i] || !contents[i].poster_path) { 
+      swiperSlide.style.display = 'none';
+      continue;
+    }
     // label 삽입
     labeling(swiperSlide, i, contents, language);
 
@@ -513,8 +577,8 @@ function slideData(slides, n, contents, language) {
     const title = contents[i].name ? contents[i].name : contents[i].title;
     inbox_title.textContent = title;
     // BG 삽입(original, w500 ~ w200)
-    const postURL = `https://image.tmdb.org/t/p/w400/${contents[i].poster_path}`;
-    const backdropURL = `https://image.tmdb.org/t/p/w500/${contents[i].backdrop_path}`;
+    const postURL = `https://image.tmdb.org/t/p/w400${contents[i].poster_path}`;
+    const backdropURL = `https://image.tmdb.org/t/p/w500${contents[i].backdrop_path}`;
     swiperSlide.style.background = `url(${postURL}) no-repeat center / cover`; // 섬네일 
     inbox_img.src = backdropURL; // in_box 사진
     // 장르 삽입
@@ -544,6 +608,9 @@ function slideData(slides, n, contents, language) {
     // 투표
     const vote = contents[i].vote_average;
     inbox_percent.textContent = vote.toFixed(1);
+    if (vote === 0) {
+      inbox_percent.parentNode.textContent = '평가 없음';
+    }
     // 좋아요 색상(투표 숫자에 따라서 변경)
     if (language === 'ko-KR') {
       if (vote > 8.7) {
@@ -552,7 +619,7 @@ function slideData(slides, n, contents, language) {
       } else if (vote >= 8.5) {
         inbox_like.childNodes[1].style.backgroundColor = '#c32222';
         inbox_like.childNodes[2].textContent = '대부분 좋아하는';
-      } else if (vote >= 6.5) {
+      } else if (vote >= 6) {
         inbox_like.childNodes[1].style.backgroundColor = '#41c322';
         inbox_like.childNodes[2].textContent = '시간 보내기 좋은';
       } else {
@@ -566,7 +633,7 @@ function slideData(slides, n, contents, language) {
       } else if (vote >= 8.5) {
         inbox_like.childNodes[1].style.backgroundColor = '#c32222';
         inbox_like.childNodes[2].textContent = 'most like';
-      } else if (vote >= 6.5) {
+      } else if (vote >= 6) {
         inbox_like.childNodes[1].style.backgroundColor = '#41c322';
         inbox_like.childNodes[2].textContent = 'good to watch';
       } else {

@@ -462,32 +462,33 @@ function fifthSec(n, contents, range, language) { // 5번째 슬라이드
       if (!value.poster_path) contents.splice(idx, 1);
     });
 
-    slideBG(swiper_slides.length, n, contents);
+    slideBG(swiper_slides.length, n, contents, language);
     })
   .catch(err => console.error(err));
 }
-function slideBG(slides, n, contents) { // 5번째 슬라이드 BG
+function slideBG(slides, n, contents, language) { // 5번째 슬라이드 BG
   for (let i = 0; i < slides; i++) {
     const swiper_slide = document.querySelector(`.categories${n} .slide${i + 1}`);
     // label
-    labeling(swiper_slide, i, contents);
+    labeling(swiper_slide, i, contents, language);
 
     // poster
     const imgURL =  `https://image.tmdb.org/t/p/original${contents[i].poster_path}`;
     swiper_slide.style.background = `url(${imgURL}) no-repeat center / cover`;
   }
 }
-function labeling(slide, i, contents) { // new, label 삽입("1999-09-20")
+function labeling(slide, i, contents, language) { // new, label 삽입("1999-09-20")
   compareDate = new Date(contents[i].first_air_date); // tv 'first_air_date' sec3 sec4
   if (contents[i].release_date) { // compareDated 없으면, 영화 'release_date' sec2  sec5
     compareDate = new Date(contents[i].release_date);
   }
   const currentDate = new Date(); // 현재 기준 날짜
   const label = document.createElement('div');
+  label.className = '';
   if (currentDate.getFullYear() == compareDate.getFullYear()) { // 올해면
-    label.className = 'new year';
+    label.className = language === 'en' ? 'new en year' : 'new ko year';
     if (currentDate.getMonth() - 1 <= compareDate.getMonth()) { // 그리고 한 달 전이면
-      label.className = 'new added';
+      label.className = language === 'en' ? 'new en added' : 'new ko added';
     }
     slide.style.borderBottomLeftRadius = 0;
     slide.style.borderBottomRightRadius = 0;
@@ -505,7 +506,7 @@ function slideData(slides, n, contents, language) {
     const inbox_like = document.querySelector(`.categories${n} .slide${i + 1} .like_list`);
 
     // label 삽입
-    labeling(swiperSlide, i, contents);
+    labeling(swiperSlide, i, contents, language);
 
     // in_box
     // 제목 삽입
@@ -544,18 +545,34 @@ function slideData(slides, n, contents, language) {
     const vote = contents[i].vote_average;
     inbox_percent.textContent = vote.toFixed(1);
     // 좋아요 색상(투표 숫자에 따라서 변경)
-    if (vote > 8.7) {
-      inbox_like.childNodes[1].style.backgroundColor = '#c32222';
-      inbox_like.childNodes[2].textContent = 'must watch';
-    } else if (vote >= 8.5) {
-      inbox_like.childNodes[1].style.backgroundColor = '#c32222';
-      inbox_like.childNodes[2].textContent = 'most like';
-    } else if (vote >= 6.5) {
-      inbox_like.childNodes[1].style.backgroundColor = '#41c322';
-      inbox_like.childNodes[2].textContent = 'good to watch';
-    } else {
-      inbox_like.childNodes[1].style.backgroundColor = '#9a22c3';
-      inbox_like.childNodes[2].textContent = 'hmmm..';
+    if (language === 'ko-KR') {
+      if (vote > 8.7) {
+        inbox_like.childNodes[1].style.backgroundColor = '#c32222';
+        inbox_like.childNodes[2].textContent = '강력 추천';
+      } else if (vote >= 8.5) {
+        inbox_like.childNodes[1].style.backgroundColor = '#c32222';
+        inbox_like.childNodes[2].textContent = '대부분 좋아하는';
+      } else if (vote >= 6.5) {
+        inbox_like.childNodes[1].style.backgroundColor = '#41c322';
+        inbox_like.childNodes[2].textContent = '시간 보내기 좋은';
+      } else {
+        inbox_like.childNodes[1].style.backgroundColor = '#9a22c3';
+        inbox_like.childNodes[2].textContent = '호불호가 있는..';
+      }      
+    } else if (language === 'en') {
+      if (vote > 8.7) {
+        inbox_like.childNodes[1].style.backgroundColor = '#c32222';
+        inbox_like.childNodes[2].textContent = 'must watch';
+      } else if (vote >= 8.5) {
+        inbox_like.childNodes[1].style.backgroundColor = '#c32222';
+        inbox_like.childNodes[2].textContent = 'most like';
+      } else if (vote >= 6.5) {
+        inbox_like.childNodes[1].style.backgroundColor = '#41c322';
+        inbox_like.childNodes[2].textContent = 'good to watch';
+      } else {
+        inbox_like.childNodes[1].style.backgroundColor = '#9a22c3';
+        inbox_like.childNodes[2].textContent = 'hmmm..';
+      }
     }
   }
   contents = '';

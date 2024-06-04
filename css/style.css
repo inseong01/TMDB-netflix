@@ -427,12 +427,18 @@ footer .footer_wrap {
   bottom: 0;
 }
 /* new add */
-.new.added::before {
+.new.en.added::before {
   content: 'recently added';
 }
+.new.ko.added::before {
+  content: '새로 나온';
+}
 /* new season */
-.new.year::before {
+.new.en.year::before {
   content: 'this year';
+}
+.new.ko.year::before {
+  content: '올해 개봉';
 }
 .new.year {
   width: 120px;
@@ -533,16 +539,13 @@ footer .footer_wrap {
 
 /* categories5 */
 .categories5 .slide {
-  /* width: 147px !important; */
   height: 320px;
 }
 .categories5 .swiper .slide::before {
   content: '';
   position: absolute;
-  /* color: #808080; */
-
-  top: 50%;
-  left: -95px;
+  top: 24%;
+  left: -75px;
   font-size: 200px;
   height: 100%;
   transform: translateY(-50%);
@@ -552,7 +555,7 @@ footer .footer_wrap {
 }
 .categories5 .swiper .slide:nth-child(1):before {
   content: '1';
-  left: -60px;
+  left: -80px;
 }
 .categories5 .swiper .slide:nth-child(2):before {
   content: '2';
@@ -580,8 +583,8 @@ footer .footer_wrap {
 }
 .categories5 .swiper .slide:nth-child(10):before {
   content: '10';
-  letter-spacing: -25px;
-  left: -115px;
+  letter-spacing: -32px;
+  left: -125px;
 }
 
 /* --------------------------------------- */

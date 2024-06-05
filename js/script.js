@@ -28,11 +28,15 @@ const swiper = new Swiper('.swiper', {
     },
     1300: {
       slidesPerView: 5,
-      slidesPerGroup: 4,
+      slidesPerGroup: 3,
+    },
+    1500: {
+      slidesPerView: 6,
+      slidesPerGroup: 3,
     },
     1600: {
-      slidesPerView: 6,
-      slidesPerGroup: 5,
+      slidesPerView: 7,
+      slidesPerGroup: 3,
     },
   },
 });
@@ -69,8 +73,13 @@ const swiper5 = new Swiper('.video5', {
       slidesPerView: 4,
       slidesPerGroup: 3,
     },
-    1550: {
+    1450: {
       slidesPerView: 5,
+      slidesPerGroup: 3,
+      slidesOffsetBefore: 160,
+    },
+    1550: {
+      slidesPerView: 6,
       slidesPerGroup: 3,
       slidesOffsetBefore: 160,
     },
@@ -209,6 +218,7 @@ const lang_lists = document.querySelectorAll('.account_section .bottom .list');
 const title1 = document.querySelector('.account_section .title');
 const title2 = document.querySelector('.account_section .box2 .name');
 const headtitles = document.querySelectorAll('.headtext');
+const button = document.querySelectorAll('button');
 
 let language = 'ko-KR';
 let range;
@@ -363,6 +373,10 @@ function genrePush() {
     details.genres['all'].push(gatherGenres)
 }
 function genreCreater(language) { // genres 추출 (+로딩 표시 제작)
+  profiles[0].disabled = true;
+  profiles[1].disabled = true;
+  profiles[0].style.cursor = 'default';
+  profiles[1].style.cursor = 'default';
   if (details.genres.all[0]) {
     details.genres.all.pop()
     details.tv.pop()
@@ -372,6 +386,12 @@ function genreCreater(language) { // genres 추출 (+로딩 표시 제작)
   movieGenres(language);
   setTimeout(() => {
     genrePush();
+    profiles[0].style.cursor = 'pointer';
+    profiles[1].style.cursor = 'pointer';
+    profiles[0].disabled = false;
+    profiles[1].disabled = false;
+    console.log('------genre generator complete------');
+    console.log('-------now you can click--------');
   }, 530);
 }
 function translateLanguage(range, language) {
@@ -652,23 +672,46 @@ function changeTab(range, language) {
   switch (range) {
     case 'tv' :
       createSec12345(range, language);
-      account_section.style.display = 'none';
-      main_section.style.display = 'block';
       break;
     case 'movie' :
       createSec12345(range, language);
-      account_section.style.display = 'none';
-      main_section.style.display = 'block';
       break;
     default :
       alert('Not ready');
       break;
   }
+
+  transitionFirstPage()
+    .then((value) => {
+      if (value) {
+        console.log(3)
+        main_section.style.display = 'block'
+        setTimeout(() => {
+          console.log(4)
+          $main_sec.style.opacity = '1'
+        }, 300); // 0.5s 뒤에 $main_sec 나타남
+      }
+    })
+}
+
+// 초기 화면 -> 메인 화면 전환(비동기 처리)
+function transitionFirstPage() {
+  return new Promise((resolve, reject) => {
+    account_section.classList.remove('active');
+    console.log(1)
+    setTimeout(() => {
+      console.log(2)
+      account_section.style.display = 'none'
+      resolve(1);
+    }, 1500) // .account_section의 transition = 1.5s
+  })
 }
 
 function mainSecForm() {
+  account_section.classList.add('active');
   account_section.addEventListener('submit', function(e) {
     e.preventDefault();
+    // 선택한 분야 실행
     changeTab(range, language);
   })
 }

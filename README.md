@@ -4,6 +4,9 @@ TMDB API 기반, 영화-TV 추천 웹사이트
 https://inseong01.github.io/TMDB-netflix/   
 
 ## 작업일자   
+- 6.5.  
+로딩화면 추가
+
 - 6.4.  
 예외처리, 오류 수정
 
@@ -45,6 +48,16 @@ UI 디자인 시안 제작
 ... 
 
 ## 작업 세부내용
++ ## 6.5.
+  - 로딩화면
+    - 커서 클릭 방지  
+      : setTimeout 함수에 profiles 배열을 포함시켜서 disabled = true/false 처리
+      : 사용자가 클릭 인식하기 위해 CSS cursor 속성 변화 
+
+    - 화면 전환 - 비동기 처리   
+      : Promise 객체 사용 (초기화면 -> 메인화면, 투명도 변화)   
+      : 방문자로부터 데이터 로드 시간 확보  
+
 + ## 6.4.   
   - 예외처리  
     - slide보다 contents 데이터 수가 적거나 이미지가 없을 때 slide 제외 

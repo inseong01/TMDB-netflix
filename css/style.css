@@ -13,6 +13,11 @@ body {
 .account_section {
   width: 100%;
   height: 100vh;
+  opacity: 0;
+  transition: 1.5s;
+}
+.account_section.active {
+  opacity: 1;
 }
 .account_section .wrap {
   height: 100%;
@@ -102,20 +107,15 @@ body {
 .main_section {
   width: 100%;
   height: 100%; 
-  /* background-color: rgb(106, 106, 106); */
   background-color: #0C0C0C;
+  opacity: 0;
+  transition: 0.7s;
 }
 .sec {
   position: relative;
   z-index: 1;
   padding: 0 60px;
 }
-/* .sec.active {
-  z-index: 99;
-}
-.sec.active .swiper-wrapper {
-  z-index: 99;
-} */
 .banner_wrap { /* banner 크기만큼 백그라운드에 포스터 사진 적용 */
   width: 100%;
   /* height: 100vh; */

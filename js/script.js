@@ -15,10 +15,10 @@ const swiper = new Swiper('.swiper', {
   breakpoints: {
     // when window width is >= px
     0: {
-      slidesPerView: 1,
-      slidesPerGroup: 1,
+      slidesPerView: 2,
+      slidesPerGroup: 2,
     },
-    700: {
+    400: {
       slidesPerView: 3,
       slidesPerGroup: 2,
     },
@@ -58,11 +58,14 @@ const swiper5 = new Swiper('.video5', {
     0: {
       slidesPerView: 1,
       slidesPerGroup: 1,
-      slidesOffsetBefore: 20,
+      slidesOffsetBefore: 40,
+      spaceBetween: 100,
     },
-    600: {
+    400: {
       slidesPerView: 2,
       slidesPerGroup: 2,
+      slidesOffsetBefore: 30,
+      spaceBetween: 100,
     },
     900: {
       slidesPerView: 3,
@@ -218,7 +221,7 @@ const lang_lists = document.querySelectorAll('.account_section .bottom .list');
 const title1 = document.querySelector('.account_section .title');
 const title2 = document.querySelector('.account_section .box2 .name');
 const headtitles = document.querySelectorAll('.headtext');
-const button = document.querySelectorAll('button');
+const profile_boxes = document.querySelectorAll('.profile_box');
 
 let language = 'ko-KR';
 let range;
@@ -227,7 +230,7 @@ let contents;
 let selectedGenre;
 let compareDate;
 let secNumber = 2;
-let complete = 0;
+let clicked = false;
 // -------------------
 const options = { // 초기설정
   method: 'GET',
@@ -252,147 +255,70 @@ const details = {
     'en': [
       {id: 36, name: "History"},
     ],
-    'all': [],
   },
+  'ko-KR-tv': [],
+  'en-tv': [],
+  'ko-KR-movie': [],
+  'en-movie': [],
   tv: [],
   movie: [],
-  // genres: [
-  //   {
-  //     id: 12,
-  //     name: "Adventure"
-  //   },
-  //   {
-  //     id: 14,
-  //     name: "Fantasy"
-  //   },
-  //   {
-  //     id: 16,
-  //     name: "Animation"
-  //   },
-  //   {
-  //     id: 18,
-  //     name: "Drama"
-  //   },
-  //   {
-  //     id: 27,
-  //     name: "Horror"
-  //   },
-  //   {
-  //     id: 28,
-  //     name: "Action"
-  //   },
-  //   {
-  //     id: 35,
-  //     name: "Comedy"
-  //   },
-  //   {
-  //     id: 36, **
-  //     name: "History"
-  //   },
-  //   {
-  //     id: 37,
-  //     name: "Western"
-  //   },
-  //   {
-  //     id: 80,
-  //     name: "Crime"
-  //   },
-  //   {
-  //     id: 99,
-  //     name: "Documentary"
-  //   },
-  //   {
-  //     id: 878, **
-  //     name: "Science Fiction"
-  //   },
-  //   {
-  //     id: 9648,
-  //     name: "Mystery"
-  //   },
-  //   {
-  //     id: 10751,
-  //     name: "Family"
-  //   },
-  //   {
-  //     id: 10759,
-  //     name: "Action & Adventure"
-  //   },
-  //   {
-  //     id: 10762,
-  //     name: "Kids"
-  //   },
-  //   {
-  //     id: 10763,
-  //     name: "News"
-  //   },
-  //   {
-  //     id: 10764,
-  //     name: "Reality"
-  //   },
-  //   {
-  //     id: 10765,
-  //     name: "Sci-Fi & Fantasy"
-  //   },
-  //   {
-  //     id: 10766,
-  //     name: "Soap"
-  //   },
-  //   {
-  //     id: 10767,
-  //     name: "Talk"
-  //   },
-  //   {
-  //     id: 10768,
-  //     name: "War & Politics"
-  //   },
-  // ],
   country: ['JP'],
 }
 // -------------------
 
-function tvGenres(language) {
-  fetch(`https://api.themoviedb.org/3/genre/tv/list?language=${language}`, options)
+function tvGenres() {
+  fetch(`https://api.themoviedb.org/3/genre/tv/list?language=ko-KR`, options)
     .then(response => response.json())
     .then(response => {
-      details.tv.push(response.genres);
-      return complete++;
+      details['ko-KR-tv'].push(response.genres.flat());
+      return;
+    })
+    .catch(err => console.error(err));
+  fetch(`https://api.themoviedb.org/3/genre/tv/list?language=en`, options)
+    .then(response => response.json())
+    .then(response => {
+      details['en-tv'].push(response.genres.flat());
+      return;
     })
     .catch(err => console.error(err));
 }
-function movieGenres(language) {
-  fetch(`https://api.themoviedb.org/3/genre/movie/list?language=${language}`, options)
+function movieGenres() {
+  fetch(`https://api.themoviedb.org/3/genre/movie/list?language=ko-KR`, options)
   .then(response => response.json())
   .then(response => {
-    details.movie.push(response.genres)
-    return complete++;
+    details['ko-KR-movie'].push(response.genres.flat());
+    return;
+  })
+  .catch(err => console.error(err));
+  fetch(`https://api.themoviedb.org/3/genre/movie/list?language=en`, options)
+  .then(response => response.json())
+  .then(response => {
+    details['en-movie'].push(response.genres.flat());
+    return;
   })
   .catch(err => console.error(err));
 }
-function genrePush() {
-    const gatherGenres = details.tv.concat(details.movie).flat();
-    details.genres['all'].push(gatherGenres)
-}
-function genreCreater(language) { // genres 추출 (+로딩 표시 제작)
+// function genrePush() {
+//     const gatherGenres = details.tv.concat(details.movie);
+//     console.log(gatherGenres);
+//     details.genres.all.push(gatherGenres);
+// }
+function genreCreater() { // genres 생성
   profiles[0].disabled = true;
   profiles[1].disabled = true;
-  profiles[0].style.cursor = 'default';
-  profiles[1].style.cursor = 'default';
-  if (details.genres.all[0]) {
-    details.genres.all.pop()
-    details.tv.pop()
-    details.movie.pop()
-  }
-  tvGenres(language);
-  movieGenres(language);
+  profile_boxes[0].style.pointerEvents = 'none';
+  profile_boxes[1].style.pointerEvents = 'none';
+  tvGenres();
+  movieGenres();
   setTimeout(() => {
-    genrePush();
-    profiles[0].style.cursor = 'pointer';
-    profiles[1].style.cursor = 'pointer';
+    // genrePush();
     profiles[0].disabled = false;
     profiles[1].disabled = false;
+    profile_boxes[0].style.pointerEvents = 'auto';
+    profile_boxes[1].style.pointerEvents = 'auto';
     console.log('------genre generator complete------');
     console.log('-------now you can click--------');
-  }, 530);
+  }, 300);
 }
 function translateLanguage(range, language) {
   switch(language) {
@@ -431,13 +357,15 @@ function createSec12345(range, language) {
   swiper_video_wrap(range, language);
 }
 let index;
+let items;
 function createRandomGenre(range, language) { // randomGenre
-  index = Math.floor(Math.random() * details[range].flat().length);
-  selectedGenre = details[range].flat()[index];
-if (selectedGenre.id === 37)  selectedGenre = details[range].flat()[index + 1];
+  items = details[`${language}-${range}`].flat();
+  index = Math.floor(Math.random() * items.length);
+  selectedGenre = items[index];
+if (selectedGenre.id === 37)  selectedGenre = items[index + 1];
   const c1_headertxt = document.querySelector(`.categories1 .headtext span`);
   c1_headertxt.textContent = selectedGenre.name;
-  if (language === 'ko-KR' ) {
+  if (language === 'ko-KR' ) { // 한국어 번역되지 않은 장르
     for (let i = 0; i < details.genres['ko'].length; i++) {
       if (selectedGenre.id === details.genres['ko'][i].id) {
         return c1_headertxt.textContent =  details.genres['ko'][i].name;
@@ -467,7 +395,7 @@ function firstSec(range, language) { // section1, genre 랜덤 선택
         }
       });
       createBanner(contents);
-      slideData(swiper_slides.length, 1, contents, language);
+      slideData(swiper_slides.length, 1, contents, language, range);
     })
     .catch(err => console.error(err));
 }
@@ -493,11 +421,10 @@ function secondSec(n, contents, range, language) { // 2번째 슬라이드
   .then(response => {
     const swiper_slides = document.querySelectorAll(`.categories${n} .slide`);
     contents = response['results'];
-    content2 = contents.slice(0, 10);
     contents.forEach((value, idx) => {
       if (!value.poster_path) contents.splice(idx, 1);
     });
-    slideData(swiper_slides.length, n, contents, language);
+    slideData(swiper_slides.length, n, contents, language, range);
     })
   .catch(err => console.error(err));
 }
@@ -507,12 +434,11 @@ function thirdSec(n, contents, range, language) { // 3번째 슬라이드
   .then(response => {
     const swiper_slides = document.querySelectorAll(`.categories${n} .slide`);
     contents = response['results'];
-    content3 = contents.slice(0, 10);
     contents.forEach((value, idx) => {
       if (!value.poster_path) contents.splice(idx, 1);
     });
 
-    slideData(swiper_slides.length, n, contents, language);
+    slideData(swiper_slides.length, n, contents, language, range);
     })
   .catch(err => console.error(err));
 }
@@ -522,12 +448,11 @@ function forthSec(n, contents, range, language) { // 4번째 슬라이드
   .then(response => {
     const swiper_slides = document.querySelectorAll(`.categories${n} .slide`);
     contents = response['results'];
-    content4 = contents.slice(0, 10);
     contents.forEach((value, idx) => {
       if (!value.poster_path) contents.splice(idx, 1);
     });
     
-    slideData(swiper_slides.length, n, contents, language);
+    slideData(swiper_slides.length, n, contents, language, range);
     })
   .catch(err => console.error(err));
 }
@@ -574,7 +499,7 @@ function labeling(slide, i, contents, language) { // new, label 삽입("1999-09-
     slide.append(label);
   }
 }
-function slideData(slides, n, contents, language) {
+function slideData(slides, n, contents, language, range) {
   // slide[i] 데이터 삽입
   for (let i = 0; i < slides; i++) {
     const swiperSlide = document.querySelector(`.categories${n} .slide${i + 1}`);
@@ -607,7 +532,7 @@ function slideData(slides, n, contents, language) {
       if (index > 2) return;
       const li = document.createElement('li');
       li.classList = 'list';
-      details.genres.all[0].forEach((genre, idx) => {
+      details[`${language}-${range}`].flat().forEach((genre) => {
         if (language === 'ko-KR') {
           details.genres['ko'].forEach(g => { // 번역되지 않은 장르면
             if (value === g.id) {
@@ -689,7 +614,7 @@ function changeTab(range, language) {
         setTimeout(() => {
           console.log(4)
           $main_sec.style.opacity = '1'
-        }, 300); // 0.5s 뒤에 $main_sec 나타남
+        }, 500); // 0.5s 뒤에 $main_sec 나타남
       }
     })
 }
@@ -712,7 +637,9 @@ function mainSecForm() {
   account_section.addEventListener('submit', function(e) {
     e.preventDefault();
     // 선택한 분야 실행
+    if (clicked) return;
     changeTab(range, language);
+    clicked = true;
   })
 }
 // 분야 선택: data 받음
@@ -737,16 +664,14 @@ lang_lists.forEach(value => {
       case 'en' :
         title1.textContent = 'Choose What Interests You'
         title2.textContent = 'movie'
-        genreCreater(language);
         break;
       default :
         title1.textContent = '관심있는 분야를 선택하세요'
         title2.textContent = '영화'
-        genreCreater(language);
         break;
     }
   });
 })
 
-genreCreater(language);
+genreCreater();
 mainSecForm();

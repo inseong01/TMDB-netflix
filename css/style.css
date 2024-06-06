@@ -49,6 +49,7 @@ body {
 }
 .account_section .profile_box {
   margin: 0 20px;
+  cursor: pointer;
 }
 .account_section .profile_box .profile {
   display: flex;
@@ -73,7 +74,7 @@ body {
 /* bottom */
 .account_section .bottom {
   width: 190px;
-  height: 25px;
+  height: auto;
 
   display: flex;
   justify-content: space-between;
@@ -167,7 +168,7 @@ header {
 }
 .menu_list_left .logo_box {
   width: 94px;
-  margin-right: 45px;
+  /* margin-right: 45px; */
 }
 .menu_list_left .list {
   display: flex;
@@ -238,7 +239,8 @@ header {
   color: white;
 }
 .video_content .video_icon {
-  width: 304px;
+  /* width: 304px; */
+  width: 100%;
   height: 287px;
 
   margin-bottom: 35px;
@@ -338,6 +340,7 @@ header {
 /* --------------------------------------- */
 /* footer */
 footer {
+  width: 100%;
   padding: 67px 0 33px;
   background-color: #0C0C0C;
 }
@@ -412,7 +415,7 @@ footer .footer_wrap {
 /* new */
 .new {
   width: 145px;
-  height: 25px;
+  height: auto;
   font-size: 12px;
   font-weight: 800;
   color: white;
@@ -426,7 +429,7 @@ footer .footer_wrap {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 12px;
+  padding: 5px 12px;
 
   position: absolute;
   bottom: 0;
@@ -605,8 +608,8 @@ footer .footer_wrap {
   right: 0;
 }
 .slide_inbox {
-  width: 500px;
-  height: 400px;
+  width: calc(200% + 16px);
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
@@ -739,4 +742,172 @@ footer .footer_wrap {
 .inbox .like_list .icon img {
   height: 23px;
   object-fit: contain;
+}
+
+@media (max-width: 1024px) {
+  /* 초기화면 */
+  .account_section .title {
+    font-size: 42px;
+    margin-bottom: 40px;
+  }
+  .account_section .profile .profile_image {
+    width: 145px;
+    height: 145px;
+    line-height: 145px;
+  }
+  .account_section .profile_box .name {
+    font-size: 32px;
+  }
+  /* 메인화면 */
+  header {
+    height: auto;
+    padding: 15px 60px;
+  }
+  .banner_bg {
+    height: 70vh;
+  }
+  .banner .center .video_content {
+    width: 100%;
+  }
+  .video_content .title {
+    font-size: 2rem;
+  }
+  .video_content .story {
+    width: 100%;
+    word-break: keep-all;
+  }
+  
+  .swiper .swiper-button-next, 
+  .swiper .swiper-button-prev {
+    display: none;
+  }
+  .categories1 {
+    margin-top: 100px;
+  }
+
+  footer {
+    padding: 32px 24px;
+  }
+  footer .footer_wrap {
+    width: 100%;
+  }
+  .footer_wrap .sns_icons {
+    display: none;
+  }
+  .footer_wrap .service,
+  .footer_wrap .policy_list {
+    display: none;
+  }
+  .footer_wrap .copy_text {
+    line-height: 10px;
+  }
+  .footer_wrap .copy_text .text {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+}
+@media (max-width: 425px) {
+  /* 초기화면 */
+  .account_section .title {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  .account_section .profile .profile_image {
+    width: 115px;
+    height: 115px;
+    line-height: 115px;
+  }
+  .account_section .profile_box .name {
+    font-size: 25px;
+  }
+  .account_section .bottom {
+    font-size: 13px;
+  }
+  /* 메인화면 */
+  header {
+    padding: 15px 24px;
+  }
+  .menu_list_left .logo_box {
+    width: 74px;
+  }
+  .sec {
+    padding: 0 24px;
+  }
+  .new {
+    width: 65px;  
+    font-size: 9px;
+    padding: 2px 3px;
+  } 
+  .new.year {
+    width: 70px;
+  }
+
+  .video_content .video_icon {
+    height: 130px;
+  }
+  .video_content .story {
+    font-size: 12px;
+    word-break: break-all;
+  }
+  .video_content .title {
+    font-size: 1.3rem;
+  }
+  .headtext {
+    font-size: 16px;
+  }
+
+  .categories1 {
+    margin-top: 70px;
+  }
+
+  .swiper .slide {
+    height: 190px;
+  }
+  .slide_inbox .top {
+    filter: brightness(0.85);
+  }
+  .slide_inbox .top img {
+    object-fit: cover;
+    object-position: center;
+  }
+  .inbox .title_wrap {
+    height: auto;
+  }
+  .inbox .title_wrap .title {
+    font-size: 1.2rem;
+  }
+  .slide_inbox .bottom {
+    height: 55%;
+    font-size: 11px;
+    padding: 0 12px;
+  } 
+  .inbox .match_list {
+    margin-bottom: 5px;
+  }
+  .inbox .genre_list {
+    font-size: 10px;
+    margin-bottom: 10px;
+  }
+  .inbox .like_list .icon {
+    width: 17px;
+    height: 17px;
+  }
+  .inbox .like_list .icon img {
+    height: 12px;
+  }
+
+  .categories5 .slide {
+    width: 130px !important;
+  }
+  .categories5 .swiper .slide:nth-child(1):before {
+    left: -40px;
+  }
+  .categories5 .swiper .slide::before {
+    left: -45px;
+    font-size: 100px;
+  }
+  .categories5 .swiper .slide:nth-child(10):before {
+    letter-spacing: -12px;
+    left: -75px;
+  }
 }

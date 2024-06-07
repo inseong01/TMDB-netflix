@@ -18,7 +18,7 @@ const swiper = new Swiper('.swiper', {
       slidesPerView: 2,
       slidesPerGroup: 2,
     },
-    400: {
+    340: {
       slidesPerView: 3,
       slidesPerGroup: 2,
     },
@@ -614,7 +614,7 @@ function changeTab(range, language) {
         setTimeout(() => {
           console.log(4)
           $main_sec.style.opacity = '1'
-        }, 500); // 0.5s 뒤에 $main_sec 나타남
+        }, 600); // 0.6s 뒤에 $main_sec 나타남
       }
     })
 }

@@ -5,6 +5,7 @@ const swiper = new Swiper('.swiper', {
     prevEl: '.swiper-button-prev',
   },
   pagination: {
+    bulletActiveClass: 'bullet-active',
     el: '.swiper-pagination',
     type: 'bullets',
   },
@@ -16,11 +17,11 @@ const swiper = new Swiper('.swiper', {
     // when window width is >= px
     0: {
       slidesPerView: 2,
-      slidesPerGroup: 2,
+      slidesPerGroup: 1,
     },
     340: {
       slidesPerView: 3,
-      slidesPerGroup: 2,
+      slidesPerGroup: 1,
     },
     1000: {
       slidesPerView: 4,
@@ -86,7 +87,7 @@ const swiper5 = new Swiper('.video5', {
       slidesPerGroup: 3,
       slidesOffsetBefore: 160,
     },
-  }
+  },
 });
 
 // slide 선택

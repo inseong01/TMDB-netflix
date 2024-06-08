@@ -898,8 +898,11 @@ footer .footer_wrap {
     margin-bottom: 5px;
   }
   .inbox .genre_list {
-    font-size: 10px;
+    font-size: 8px;
     margin-bottom: 10px;
+  }
+  .inbox .genre_list .list:nth-child(2) {
+    margin-right: 0;
   }
   .inbox .genre_list .list:nth-child(3) {
     display: none;

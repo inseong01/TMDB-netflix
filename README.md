@@ -4,6 +4,9 @@ TMDB API 기반, 영화-TV 추천 웹사이트
 https://inseong01.github.io/TMDB-netflix/   
 
 ## 작업일자   
+- 6.9.     
+API key 분리
+
 - 6.8.  
 반응형 수정   
 
@@ -56,14 +59,24 @@ UI 디자인 시안 제작
 ## 발견한 오류 / 개선할 것들   
 ...   
 ## 작업 세부내용  
-+ ## 6.6.   
++ ## 6.9.   
+  - API key 분리  
+    : gitignore 추가(사이트 운영으로 숨김처리 X)   
+
+    ```
+    $ touch gitignore
+    $ echo 'api_key.js' >> .gitignore
+    $ cat .gitignore  
+    ```
+
++ ## 6.8.   
   - 반응형 수정   
 
-+ ## 6.6.   
++ ## 6.7.   
   - 반응형 수정   
   - 파비콘 교체   
 
-+ ## 6.5.   
++ ## 6.6.   
   - 에러 수정
     - 연속 클릭 방지  
       - 연속 선택하면 장르 중복 생성되는 오류   

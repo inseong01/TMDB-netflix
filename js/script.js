@@ -233,7 +233,8 @@ let compareDate;
 let secNumber = 2;
 let clicked = false;
 // -------------------
-const options = { // 초기설정
+// api key 숨김
+const options = {
   method: 'GET',
   headers: {
     accept: 'application/json',
